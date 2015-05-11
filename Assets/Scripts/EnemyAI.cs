@@ -10,7 +10,7 @@ public class EnemyAI : MonoBehaviour
 {
     public float moveSpeed;
     private float range;
-
+    public int x;
     public bool gotPlayerPoint = false;
     public EnemyInfoHolder _enemyInfoHolder;
     public string pointHolding;
