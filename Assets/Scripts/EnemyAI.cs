@@ -5,7 +5,7 @@ using System.Collections;
 public enum BLOCKED { UP, DOWN, RIGHT, LEFT, NULL };
 public enum DODGE { UP, DOWN, RIGHT, LEFT, NULL };
 // #obsend
-
+//ALON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 public class EnemyAI : MonoBehaviour
 {
     public float moveSpeed;
