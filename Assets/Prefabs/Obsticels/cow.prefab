@@ -29,6 +29,7 @@ GameObject:
   - 54: {fileID: 5490278}
   - 114: {fileID: 11474894}
   - 114: {fileID: 11471572}
+  - 114: {fileID: 11483192}
   m_Layer: 0
   m_Name: cow
   m_TagString: obstacle
@@ -111,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583b7b3ad5cafb447aa520332cd7d985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathFxGameObject: {fileID: 0}
+  deathFxGameObject: {fileID: 100000, guid: 128e1d5f8db64394ead123313ecec398, type: 2}
   currentHealth: 100
 --- !u!114 &11474894
 MonoBehaviour:
@@ -122,6 +123,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ad212c3f968a9a4081232f27098efb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11483192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfd595c975b04a47b0b5f93d8d017d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21253556

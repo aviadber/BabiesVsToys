@@ -29,6 +29,7 @@ GameObject:
   - 54: {fileID: 5400340}
   - 114: {fileID: 11424490}
   - 114: {fileID: 11497176}
+  - 114: {fileID: 11495384}
   m_Layer: 0
   m_Name: cubes
   m_TagString: obstacle
@@ -111,6 +112,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zFactor: 1.20000005
+--- !u!114 &11495384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfd595c975b04a47b0b5f93d8d017d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11497176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583b7b3ad5cafb447aa520332cd7d985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathFxGameObject: {fileID: 0}
+  deathFxGameObject: {fileID: 100002, guid: c5713b57c62a91248b9c4dcb5d81bc78, type: 2}
   currentHealth: 100
 --- !u!212 &21272300
 SpriteRenderer:
