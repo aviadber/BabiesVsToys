@@ -73,7 +73,7 @@ public  class PlayerPointHandler : MonoBehaviour
                 index = i;
             }
         }
-        print("returning "+availablePoints[index].name);
+//        print("returning "+availablePoints[index].name);
         return availablePoints[index];
     }
 

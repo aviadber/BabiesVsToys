@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11490776}
   - 114: {fileID: 11485658}
   - 54: {fileID: 5406308}
+  - 114: {fileID: 11455804}
   m_Layer: 0
   m_Name: hoursy
   m_TagString: obstacle
@@ -55,8 +56,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 118016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.74000001, y: 1.41060102, z: -2.76401496}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1.74000001, y: 1.41059995, z: -2.76399994}
+  m_LocalScale: {x: 1, y: 1, z: 1.81219637}
   m_Children:
   - {fileID: 433726}
   m_Father: {fileID: 0}
@@ -87,7 +88,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.50999999, y: 1.76999998, z: .219999999}
-  m_Center: {x: 0, y: .75, z: 0}
+  m_Center: {x: -0, y: .75, z: .0299999993}
 --- !u!114 &11432874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,6 +101,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zFactor: 1.20000005
+--- !u!114 &11455804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfd595c975b04a47b0b5f93d8d017d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11485658
 MonoBehaviour:
   m_ObjectHideFlags: 1

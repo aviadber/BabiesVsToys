@@ -44,8 +44,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 155280}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.65999985, y: .682492793, z: -6.41735888}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5.65999985, y: .682489991, z: -6.41739988}
+  m_LocalScale: {x: 1, y: 1, z: 2.60582709}
   m_Children:
   - {fileID: 481788}
   m_Father: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583b7b3ad5cafb447aa520332cd7d985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathFxGameObject: {fileID: 100002, guid: c5713b57c62a91248b9c4dcb5d81bc78, type: 2}
+  deathFxGameObject: {fileID: 100010, guid: 3eaa9cadf8966754bb4d336173ca0933, type: 2}
   currentHealth: 100
 --- !u!212 &21272300
 SpriteRenderer:

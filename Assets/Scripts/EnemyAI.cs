@@ -46,7 +46,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (!isRegistered)
         {
-            print("registering ennemy");
+//            print("registering ennemy");
             GameManager.registerEnemy(this.gameObject);
             isRegistered = true;
         }
@@ -59,7 +59,7 @@ public class EnemyAI : MonoBehaviour
         }
 
         range = Vector3.Distance(this.transform.position, _enemyInfoHolder.point.dockPoint.position);
-        if (range < 0.2) // checks when enemy is near the player dock point and then occupies it 
+        if (range <= 0.2f) // checks when enemy is near the player dock point and then occupies it 
         {
 
             GameManager.OccupyPoint(_enemyInfoHolder.point);

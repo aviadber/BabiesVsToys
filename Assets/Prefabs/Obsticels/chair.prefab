@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11430166}
   - 114: {fileID: 11451326}
   - 54: {fileID: 5422340}
+  - 114: {fileID: 11459514}
   m_Layer: 0
   m_Name: chair
   m_TagString: obstacle
@@ -43,8 +44,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.5900002, y: .75999999, z: -.939999998}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -22.5900002, y: .75999999, z: -2.69000006}
+  m_LocalScale: {x: 1, y: 1, z: 1.14999735}
   m_Children:
   - {fileID: 456026}
   m_Father: {fileID: 0}
@@ -122,6 +123,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ad212c3f968a9a4081232f27098efb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11459514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfd595c975b04a47b0b5f93d8d017d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &21248250

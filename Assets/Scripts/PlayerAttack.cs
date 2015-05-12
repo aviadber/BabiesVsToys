@@ -98,9 +98,8 @@ public class PlayerAttack : MonoBehaviour
                 if (typeOfAttack == 0)// melee attack
                 {
                     Instantiate(EffectGameObject, offensePoint.transform.position, offensePoint.transform.rotation);
-                    health.DecreaseHealth(meleeAttackDmg);
+                     health.DecreaseHealth(meleeAttackDmg);
                 }
-            
             }
      
 
