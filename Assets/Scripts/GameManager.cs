@@ -8,9 +8,13 @@ public  class GameManager:MonoBehaviour
     public static ArrayList enemyList;
     public static ArrayList obstacleList; //#distObs
     public static GameObject playerOne;
+    public static GameObject deathHandler;
     public static PlayerPointHandler pointHandler;
+    public static deathEffectsHandler DeathEffectsHandler;
+     
     void Start()
     {
+        deathHandler = GameObject.Find("deathHandler");
         collectableList=new ArrayList();
         enemyList = new ArrayList();
         obstacleList = new ArrayList(); //#distObs
@@ -18,6 +22,10 @@ public  class GameManager:MonoBehaviour
         if (playerOne != null)
         {
             pointHandler = playerOne.GetComponent<PlayerPointHandler>();//this attaches the script
+        }
+        if (deathHandler != null)
+        {
+            DeathEffectsHandler = deathHandler.GetComponent<deathEffectsHandler>();
         }
     }
 
@@ -97,5 +105,18 @@ public  class GameManager:MonoBehaviour
     public static void EnablePoint(string s)
     {
         pointHandler.EnablePoint(s);
+    }
+
+    public static void instantiateObsticleFx(Transform otherTransform)
+    {
+        DeathEffectsHandler.instantiateObsibleFx(otherTransform);
+        
+    }
+
+    public static void instantiateEnemyFx(Transform otherTransform)
+    {
+        DeathEffectsHandler.instantiateEnemyFx(otherTransform);
+       
+        
     }
 }
