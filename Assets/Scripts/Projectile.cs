@@ -51,7 +51,7 @@ public class Projectile : MonoBehaviour
             {
                 GameObject enemy = (GameObject) enemyList[i];
                 distanceFromEnemy = Vector3.Distance(this.transform.position, enemy.transform.position);
-                if (distanceFromEnemy <= 1)
+                if (distanceFromEnemy <= 1.1)
                 {
                     EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
                     Instantiate(projectileHitFX,this.transform.position,this.transform.rotation);
@@ -69,7 +69,7 @@ public class Projectile : MonoBehaviour
             {
                 GameObject obs = (GameObject)obstacleList[i];
                 distanceFromEnemy = Vector3.Distance(this.transform.position, obs.transform.position);
-                if (distanceFromEnemy <= 1)
+                if (distanceFromEnemy <= 1.2)
                 {
                     ObstacleHealth health = obs.GetComponent<ObstacleHealth>();
                     Instantiate(projectileHitFX, this.transform.position, this.transform.rotation);

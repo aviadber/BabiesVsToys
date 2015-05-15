@@ -152,23 +152,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &171198
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 454658}
-  - 65: {fileID: 6522110}
-  - 114: {fileID: 11433186}
-  m_Layer: 8
-  m_Name: point5
-  m_TagString: player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &173012
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +251,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .370000005, y: .159999996, z: -1.79999995}
+  m_LocalPosition: {x: 24.9200001, y: .159999996, z: -1.79999995}
   m_LocalScale: {x: .800000012, y: 1, z: .064172864}
   m_Children:
   - {fileID: 400008}
@@ -281,7 +264,6 @@ Transform:
   - {fileID: 400010}
   - {fileID: 489136}
   - {fileID: 455544}
-  - {fileID: 454658}
   - {fileID: 414838}
   - {fileID: 492920}
   m_Father: {fileID: 0}
@@ -293,7 +275,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0999999, y: 0, z: 0}
+  m_LocalPosition: {x: -1.82000005, y: .699999988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -305,7 +287,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100008}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.75999999, y: .200000003, z: 0}
+  m_LocalPosition: {x: 1.23000002, y: -.379999995, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -333,18 +315,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
-  m_RootOrder: 11
---- !u!4 &454658
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 171198}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.08999991, y: 1.21000004, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400004}
   m_RootOrder: 10
 --- !u!4 &455544
 Transform:
@@ -353,7 +323,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.08000004, y: .860000014, z: 0}
+  m_LocalPosition: {x: -1.57000005, y: -.300000012, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -365,7 +335,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100010}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.07000005, y: -.589999974, z: 0}
+  m_LocalPosition: {x: 1.95000005, y: .899999976, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -417,7 +387,7 @@ Transform:
   m_LocalScale: {x: .340371013, y: .298407495, z: 4.65005684}
   m_Children: []
   m_Father: {fileID: 400004}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!65 &6505646
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -436,18 +406,6 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 181288}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!65 &6522110
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 171198}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
@@ -553,7 +511,7 @@ MonoBehaviour:
   EffectGameObject: {fileID: 100000, guid: 69df23551c3c5d945bd42825ccc88d50, type: 2}
   offensePoint: {fileID: 100000}
   waterGunExitPoint: {fileID: 105496}
-  minAttackRange: 1.5
+  minAttackRange: 1
   attackKey: q
   typeOfAttack: 0
   rangedAttackKey: q
@@ -612,10 +570,6 @@ MonoBehaviour:
   - dockPoint: {fileID: 455544}
     occupied: 0
     name: point4
-    active: 1
-  - dockPoint: {fileID: 454658}
-    occupied: 0
-    name: point5
     active: 1
   parameterPointsList:
   - dockPoint: {fileID: 484118}
@@ -708,18 +662,6 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b021a8a78ccbfa4e81be6244d131144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zFactor: 1.20000005
---- !u!114 &11433186
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 171198}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b021a8a78ccbfa4e81be6244d131144, type: 3}

@@ -6,7 +6,9 @@ public class EnemySpawner : MonoBehaviour
     // GameObjects
     public GameObject enemy;
     public GameObject player;
-
+    
+    //info
+    public float distanceFromPlayer;
     // Options
     
     public bool pause = false;
@@ -63,9 +65,12 @@ public class EnemySpawner : MonoBehaviour
     {
         if (!pause && !(useMaxEnemyes && (MaxEnemyes <= enemyesDeployed)))
         {
+          
+           
             if (byPlayerDistance)
             {
-                tempDistance =  enemy.transform.position.x - player.transform.position.x;
+                tempDistance = Vector3.Distance(this.transform.position, player.transform.position);
+                distanceFromPlayer = tempDistance;
                 if (tempDistance <= distance)
                 {
                     if (timer < Time.time)

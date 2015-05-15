@@ -11,6 +11,7 @@ public  class GameManager:MonoBehaviour
     public static GameObject deathHandler;
     public static PlayerPointHandler pointHandler;
     public static deathEffectsHandler DeathEffectsHandler;
+    
      
     void Start()
     {
@@ -118,5 +119,13 @@ public  class GameManager:MonoBehaviour
         DeathEffectsHandler.instantiateEnemyFx(otherTransform);
        
         
+    }
+
+    public static void activateContinueTextBlink()
+    {
+        GameObject textGameObject = GameObject.Find("TextHandler");
+        ContinueText text= textGameObject.GetComponent<ContinueText>();
+        text.activate = true;
+
     }
 }
