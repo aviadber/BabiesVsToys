@@ -9,12 +9,15 @@ public  class GameManager:MonoBehaviour
     public static ArrayList obstacleList; //#distObs
     public static GameObject playerOne;
     public static GameObject deathHandler;
+    public static GameObject sfxHandler;
     public static PlayerPointHandler pointHandler;
-    public static deathEffectsHandler DeathEffectsHandler;
+    public static DeathFxHandler DeathFxHandler;
+    public static MusicFxHandler MusicFxHandler;
     
      
     void Start()
     {
+        sfxHandler = GameObject.Find("sfxHandler");
         deathHandler = GameObject.Find("deathHandler");
         collectableList=new ArrayList();
         enemyList = new ArrayList();
@@ -26,7 +29,11 @@ public  class GameManager:MonoBehaviour
         }
         if (deathHandler != null)
         {
-            DeathEffectsHandler = deathHandler.GetComponent<deathEffectsHandler>();
+            DeathFxHandler = deathHandler.GetComponent<DeathFxHandler>();
+        }
+        if (sfxHandler != null)
+        {
+            MusicFxHandler = sfxHandler.GetComponent<MusicFxHandler>();
         }
     }
 
@@ -110,13 +117,13 @@ public  class GameManager:MonoBehaviour
 
     public static void instantiateObsticleFx(Transform otherTransform)
     {
-        DeathEffectsHandler.instantiateObsibleFx(otherTransform);
+        DeathFxHandler.instantiateObsibleFx(otherTransform);
         
     }
 
     public static void instantiateEnemyFx(Transform otherTransform)
     {
-        DeathEffectsHandler.instantiateEnemyFx(otherTransform);
+        DeathFxHandler.instantiateEnemyFx(otherTransform);
        
         
     }
@@ -127,5 +134,16 @@ public  class GameManager:MonoBehaviour
         ContinueText text= textGameObject.GetComponent<ContinueText>();
         text.activate = true;
 
+    }
+
+   
+    public static void playProjectileHitSoundFx()
+    {
+        MusicFxHandler.playProjectileHitSfx();
+    }
+
+    public static void playObstacleExplosionSfx()
+    {
+        MusicFxHandler.playObstableExplosionSoundFx();
     }
 }

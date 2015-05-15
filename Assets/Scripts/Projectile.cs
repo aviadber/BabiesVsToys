@@ -54,7 +54,8 @@ public class Projectile : MonoBehaviour
                 if (distanceFromEnemy <= 1.1)
                 {
                     EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-                    Instantiate(projectileHitFX,this.transform.position,this.transform.rotation);
+                    Instantiate(projectileHitFX, this.transform.position, this.transform.rotation);
+                    GameManager.playProjectileHitSoundFx();
                     enemyHealth.DecreaseHealth(projectileDamage);
                     Destroy(this.gameObject);
                 } 
@@ -73,6 +74,7 @@ public class Projectile : MonoBehaviour
                 {
                     ObstacleHealth health = obs.GetComponent<ObstacleHealth>();
                     Instantiate(projectileHitFX, this.transform.position, this.transform.rotation);
+                    GameManager.playProjectileHitSoundFx();
                     health.DecreaseHealth(projectileDamage);
                     Destroy(this.gameObject);
                 }

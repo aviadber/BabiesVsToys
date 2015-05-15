@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class deathEffectsHandler : MonoBehaviour {
+public class DeathFxHandler : MonoBehaviour {
     public  GameObject[] enemyExplodingEffects;
     public  GameObject[] obsticleExplodingEffects;
     private static int obsticleCounter = 0;

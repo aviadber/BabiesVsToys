@@ -21,7 +21,9 @@ public class ObstacleHealth : MonoBehaviour {
         print(currentHealth);
         if (currentHealth <= 0)
         {
+            
             GameManager.instantiateObsticleFx(this.transform);
+            GameManager.playObstacleExplosionSfx();
             GameManager.obstacleList.Remove(this.gameObject);
            // EnemyAI ai = this.gameObject.GetComponent<EnemyAI>();
             print("Dsa");

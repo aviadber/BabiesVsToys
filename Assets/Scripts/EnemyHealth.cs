@@ -22,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             GameManager.instantiateEnemyFx(this.transform);
+            GameManager.playObstacleExplosionSfx();
             GameManager.enemyList.Remove(this.gameObject);
             EnemyAI ai = this.gameObject.GetComponent<EnemyAI>();
             if (ai.gotPlayerPoint==true)
