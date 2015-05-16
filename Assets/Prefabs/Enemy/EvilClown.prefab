@@ -58,8 +58,9 @@ GameObject:
   - 4: {fileID: 450474}
   - 212: {fileID: 21299820}
   - 95: {fileID: 9526174}
+  - 114: {fileID: 11493124}
   m_Layer: 0
-  m_Name: clown_sprite
+  m_Name: clownAnimations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.2900009, y: 0, z: -1.80999994}
+  m_LocalPosition: {x: 3.1400001, y: 1.20000005, z: -.49000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 450474}
@@ -298,6 +299,17 @@ MonoBehaviour:
   predictPlayerMovment: 0
   MOVEMENT: 4
   TURN: 4
+--- !u!114 &11493124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139882}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80df89b4533748409598b1318b2d18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11497884
 MonoBehaviour:
   m_ObjectHideFlags: 1

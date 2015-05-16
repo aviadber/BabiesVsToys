@@ -21,6 +21,7 @@ public class clownAnimationHandler : MonoBehaviour
     public void setIsAttacking(bool state)
     {
         isAttacking = state;
-        clownAnimator.SetBool("isAttacking",isAttacking);
+//        clownAnimator.SetBool("isAttacking",isAttacking);
+    }
     }
 }
