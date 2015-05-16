@@ -812,7 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objToFollow: {fileID: 437335882}
-  stopCamera: 0
+  stopCamera: 1
   smoothFactor: 1
   firstStop: 0
 --- !u!1 &514093465
