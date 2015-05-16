@@ -19,7 +19,7 @@ public class PlayerCollectableHandler : MonoBehaviour
 	    if (GameManager.collectableList != null) collectables = GameManager.collectableList;
 	    if (Input.GetKeyDown(pickUpKey))
 	    {
-            print("trying to pick up");
+//            print("trying to pick up");
 	        for (int i = 0; i < collectables.Count; i++)
 	        {
 	            GameObject collectableGameObject = (GameObject) collectables[i];
@@ -45,7 +45,7 @@ public class PlayerCollectableHandler : MonoBehaviour
     {
         CollactableWeapon c = collect.GetComponent<CollactableWeapon>();
         c.isPicked = true;
-
+        GameManager.setWalkGunAnim(true);
         return c;
     }
 }

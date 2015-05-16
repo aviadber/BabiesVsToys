@@ -385,7 +385,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105496}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.03999996, y: 1.12, z: -1.79999995}
+  m_LocalPosition: {x: 2.03999996, y: 1.12, z: 0}
   m_LocalScale: {x: .340371013, y: .298407495, z: 4.65005684}
   m_Children: []
   m_Father: {fileID: 400004}
@@ -535,6 +535,7 @@ MonoBehaviour:
   typeOfAttack: 0
   rangedAttackKey: q
   meleeAttackDmg: 20
+  attackAnimTime: .100000001
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -558,6 +559,8 @@ MonoBehaviour:
   down: s
   moveRight: 0
   moveLeft: 0
+  moveUp: 0
+  moveDown: 0
   blockedUp: 0
   blockedDown: 0
   blockedRight: 0

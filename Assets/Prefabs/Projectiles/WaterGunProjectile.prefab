@@ -69,10 +69,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileSpeed: 5
-  rangeOfProjectile: 1.20000005
+  rangeOfProjectile: 1.5
   projEffect: {fileID: 100000, guid: a381ded06c204a54e909a18e574f7436, type: 2}
   projectileDamage: 25
   projectileHitFX: {fileID: 100002, guid: 3701b037060881f4ab28875f88041c69, type: 2}
+  hitRange: 1.20000005
 --- !u!212 &21293822
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     public int projectileDamage;
     private float distanceFromEnemy;
     public GameObject projectileHitFX;
+    public float hitRange;
 	// Use this for initialization
 	void Start ()
 	{
@@ -51,7 +52,7 @@ public class Projectile : MonoBehaviour
             {
                 GameObject enemy = (GameObject) enemyList[i];
                 distanceFromEnemy = Vector3.Distance(this.transform.position, enemy.transform.position);
-                if (distanceFromEnemy <= 1.1)
+                if (distanceFromEnemy <= hitRange && Mathf.Abs(transform.position.z-enemy.transform.position.z)<0.5)
                 {
                     EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
                     Instantiate(projectileHitFX, this.transform.position, this.transform.rotation);
@@ -70,7 +71,7 @@ public class Projectile : MonoBehaviour
             {
                 GameObject obs = (GameObject)obstacleList[i];
                 distanceFromEnemy = Vector3.Distance(this.transform.position, obs.transform.position);
-                if (distanceFromEnemy <= 1.2)
+                if (distanceFromEnemy <= hitRange &&Mathf.Abs(transform.position.z - obs.transform.position.z) < 0.5)
                 {
                     ObstacleHealth health = obs.GetComponent<ObstacleHealth>();
                     Instantiate(projectileHitFX, this.transform.position, this.transform.rotation);

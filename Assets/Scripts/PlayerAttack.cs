@@ -43,11 +43,13 @@ public class PlayerAttack : MonoBehaviour
         if (typeOfAttack == 1)
         {
             GameManager.setWalkGunAnim(true);
+            
         }
         else
         {
             GameManager.setWalkGunAnim(false);
         }
+       
         if (GameManager.enemyList.Count > 0)
         {
             for (int i = 0; i < GameManager.enemyList.Count; i++)
@@ -108,9 +110,10 @@ public class PlayerAttack : MonoBehaviour
                 print("enemydsaasdsad");
                 if (typeOfAttack == 0)// melee attack
                 {
+                    
+                    Instantiate(EffectGameObject, offensePoint.transform.position, offensePoint.transform.rotation);
                     isAttacking = true;
                     GameManager.setAttackAnim(true);
-                    Instantiate(EffectGameObject, offensePoint.transform.position, offensePoint.transform.rotation);
                     health.DecreaseHealth(meleeAttackDmg);
                 }
             
@@ -121,9 +124,10 @@ public class PlayerAttack : MonoBehaviour
                 ObstacleHealth health = obj.GetComponent<ObstacleHealth>(); //#distObs
                 if (typeOfAttack == 0)// melee attack
                 {
+                   
+                    Instantiate(EffectGameObject, offensePoint.transform.position, offensePoint.transform.rotation);
                     isAttacking = true;
                     GameManager.setAttackAnim(true);
-                    Instantiate(EffectGameObject, offensePoint.transform.position, offensePoint.transform.rotation);
 
                      health.DecreaseHealth(meleeAttackDmg);
                 }
