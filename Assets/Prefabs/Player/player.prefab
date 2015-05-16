@@ -25,8 +25,10 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200000}
   - 65: {fileID: 6559052}
+  - 95: {fileID: 9599190}
+  - 114: {fileID: 11420214}
   m_Layer: 8
-  m_Name: greenBaby
+  m_Name: playerAnimations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +253,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.9200001, y: .159999996, z: -1.79999995}
+  m_LocalPosition: {x: 2.79999995, y: .200000003, z: -1.79999995}
   m_LocalScale: {x: .800000012, y: 1, z: .064172864}
   m_Children:
   - {fileID: 400008}
@@ -496,6 +498,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &9599190
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7fc5c2c85f1c1fa45a66257290dabf0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -511,7 +530,7 @@ MonoBehaviour:
   EffectGameObject: {fileID: 100000, guid: 69df23551c3c5d945bd42825ccc88d50, type: 2}
   offensePoint: {fileID: 100000}
   waterGunExitPoint: {fileID: 105496}
-  minAttackRange: 1
+  minAttackRange: 1.79999995
   attackKey: q
   typeOfAttack: 0
   rangedAttackKey: q
@@ -644,6 +663,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zFactor: 1.20000005
+--- !u!114 &11420214
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb6ff7b418d9a244b6777db1b87a7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  babyAnimator: {fileID: 0}
+  isWalking: 0
+  isAttacking: 0
+  isWalkingGun: 0
 --- !u!114 &11425876
 MonoBehaviour:
   m_ObjectHideFlags: 1

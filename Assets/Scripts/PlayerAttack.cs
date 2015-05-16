@@ -26,6 +26,14 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (typeOfAttack == 1)
+        {
+            GameManager.setWalkGunAnim(true);
+        }
+        else
+        {
+            GameManager.setWalkGunAnim(false);
+        }
         if (GameManager.enemyList.Count > 0)
         {
             for (int i = 0; i < GameManager.enemyList.Count; i++)

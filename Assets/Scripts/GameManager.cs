@@ -11,6 +11,8 @@ public  class GameManager:MonoBehaviour
     public static GameObject deathHandler;
     public static GameObject sfxHandler;
     public static GameObject scoreObject;
+    public static GameObject playerAnimations;
+    public static BabyAnimationHandler babyAnimationHandler;
     public static PlayerPointHandler pointHandler;
     public static DeathFxHandler DeathFxHandler;
     public static MusicFxHandler MusicFxHandler;
@@ -19,6 +21,7 @@ public  class GameManager:MonoBehaviour
      
     void Start()
     {
+        playerAnimations = GameObject.Find("playerAnimations");
         scoreObject = GameObject.Find("scoreHandler");
         sfxHandler = GameObject.Find("sfxHandler");
         deathHandler = GameObject.Find("deathHandler");
@@ -41,6 +44,10 @@ public  class GameManager:MonoBehaviour
         if (scoreObject != null)
         {
             scoreHandler = scoreObject.GetComponent<ScoreHandler>();
+        }
+        if (playerAnimations != null)
+        {
+            babyAnimationHandler = playerAnimations.GetComponent<BabyAnimationHandler>();
         }
     }
 
@@ -157,5 +164,15 @@ public  class GameManager:MonoBehaviour
     public static void increaseScore(int scoreAmount)
     {
        scoreHandler.increaseScore(scoreAmount);
+    }
+
+    public static void setAttackAnim(bool b)
+    {
+        babyAnimationHandler.setAttacking(b);
+    }
+
+    public static void setWalkGunAnim(bool b)
+    {
+        babyAnimationHandler.setWalkingGun(b);
     }
 }

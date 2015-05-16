@@ -812,7 +812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objToFollow: {fileID: 437335882}
-  stopCamera: 1
+  stopCamera: 0
   smoothFactor: 1
   firstStop: 0
 --- !u!1 &514093465
@@ -1030,11 +1030,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: f2a640a29874c7c429c4f3ed06d68b25, type: 2}
       propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400004, guid: f2a640a29874c7c429c4f3ed06d68b25, type: 2}
-      propertyPath: attackPointsList.Array.data[4].dockPoint
-      value: 
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11410398, guid: f2a640a29874c7c429c4f3ed06d68b25, type: 2}
       propertyPath: healthSlider
@@ -1044,10 +1040,6 @@ Prefab:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 620952450}
-    - target: {fileID: 11400000, guid: f2a640a29874c7c429c4f3ed06d68b25, type: 2}
-      propertyPath: minAttackRange
-      value: 1.79999995
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f2a640a29874c7c429c4f3ed06d68b25, type: 2}
   m_IsPrefabParent: 0
@@ -3467,6 +3459,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a74b9011092dec34c83ce5f0f219ea99, type: 3}
   - {fileID: 8300000, guid: e82f93d2d37d5b048ba39840b180be28, type: 3}
   audioSource: {fileID: 520375588}
+  volumeScalar: 0
 --- !u!1 &1459998346
 GameObject:
   m_ObjectHideFlags: 0
