@@ -18,7 +18,8 @@ public class EnemyRaycast : MonoBehaviour
         {
             if (_layerMask == -1)
             {
-                _layerMask = ~(1 << LayerMask.NameToLayer("player"));
+                _layerMask = ~(1 << LayerMask.NameToLayer("player") | 1 << LayerMask.NameToLayer("YLimiter"));
+
             }
             return _layerMask;
         }
@@ -33,8 +34,8 @@ public class EnemyRaycast : MonoBehaviour
     void Update()
     {
         //{
-        if (p_EnemyAI.MOVEMENT == BLOCKED.NULL || Time.time > nextRayCheck)
-        {
+        //if (p_EnemyAI.MOVEMENT == BLOCKED.NULL) // removed || Time.time > nextRayCheck
+        //{
             if (Physics.Raycast(transform.position, Vector3.forward, ray, layerMask))
                 p_EnemyAI.MOVEMENT = BLOCKED.UP;
             else if (Physics.Raycast(transform.position, Vector3.back, ray, layerMask))
@@ -46,8 +47,8 @@ public class EnemyRaycast : MonoBehaviour
             else
                 p_EnemyAI.MOVEMENT = BLOCKED.NULL;
 
-            nextRayCheck = Time.time + dodgeTime;
-        }
+           // nextRayCheck = Time.time + dodgeTime;
+        //}
         //  }
 
         if (showRays)
