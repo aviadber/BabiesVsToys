@@ -18,7 +18,7 @@ public class EnemyAI : MonoBehaviour
     private bool isRegistered = false;
     // Use this for initialization
 
-    public bool stop = false, faceRight = false, dodgeByPlayerPos = true, dodging = false, predict = false;
+    public bool stop = false, faceRight = false, dodgeByPlayerPos = true, dodging = false, predictPlayerMovment = false;
     public BLOCKED MOVEMENT = BLOCKED.NULL;
     public DODGE TURN = DODGE.NULL;
 
@@ -154,7 +154,7 @@ public class EnemyAI : MonoBehaviour
                             TURN = DODGE.RIGHT;
                         }
                     }
-                    if (predict) {
+                    if (predictPlayerMovment) {
                         float absDiff = System.Math.Abs(_enemyInfoHolder.point.dockPoint.transform.position.y - transform.position.y);
                         if (absDiff < 0.25) {
                             if (GameObject.FindGameObjectWithTag("player").GetComponent<boxMov>().moveLeft)
@@ -194,7 +194,7 @@ public class EnemyAI : MonoBehaviour
                             TURN = DODGE.DOWN;
                         }
                     }
-                    if (predict)
+                    if (predictPlayerMovment)
                     {
                         float absDiff = System.Math.Abs(_enemyInfoHolder.point.dockPoint.transform.position.x - transform.position.x);
                         if (absDiff < 0.25)
