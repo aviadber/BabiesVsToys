@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
         heart = GameObject.FindGameObjectWithTag("heart");
 
     }
-    //jj
+
 	// Use this for initialization
 	void Start () {
 	
