@@ -68,14 +68,13 @@ public class EnemyAI : MonoBehaviour
             
             if (dodging)
                 dodge();
-<<<<<<< HEAD
-            else if (MOVEMENT == BLOCKED.NULL )
-            { /*#obsend*/
+
+           
                // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-=======
+
             else if (MOVEMENT == BLOCKED.NULL)
             { 
->>>>>>> origin/master
+
                 float oldY = this.transform.position.y;
                 transform.position = Vector3.MoveTowards(this.transform.position, _enemyInfoHolder.point.dockPoint.position, moveSpeed * Time.deltaTime);
                 if (transform.position.y >= 1.76f)
