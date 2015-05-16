@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 400002}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
-  - 114: {fileID: 11469170}
   - 114: {fileID: 11441396}
+  - 114: {fileID: 11435380}
   m_Layer: 0
   m_Name: EvilTeddy
   m_TagString: Enemy
@@ -241,6 +241,7 @@ MonoBehaviour:
   faceRight: 0
   dodgeByPlayerPos: 1
   dodging: 0
+  predictPlayerMovment: 0
   MOVEMENT: 4
   TURN: 4
 --- !u!114 &11400002
@@ -269,6 +270,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontBar: {fileID: 184306}
   backBar: {fileID: 119268}
+--- !u!114 &11435380
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f58c82e3d99e141b46a43b83c44305, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: .5
+  attackDamage: 1
+  attackRange: 1.20000005
+  playerInRange: 1
 --- !u!114 &11441396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,20 +311,6 @@ MonoBehaviour:
   showRays: 1
   dodgeTime: 1
   ray: .100000001
---- !u!114 &11469170
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f58c82e3d99e141b46a43b83c44305, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenAttacks: .5
-  attackDamage: 1
-  playerInRange: 0
 --- !u!212 &21227676
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -45,7 +45,7 @@ public class PlayerCollectableHandler : MonoBehaviour
     {
         CollactableWeapon c = collect.GetComponent<CollactableWeapon>();
         c.isPicked = true;
-        GameManager.setWalkGunAnim(true);
+
         return c;
     }
 }

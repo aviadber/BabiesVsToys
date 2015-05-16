@@ -255,13 +255,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151266}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9f58c82e3d99e141b46a43b83c44305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: .5
   attackDamage: 1
+  attackRange: 1.20000005
   playerInRange: 0
 --- !u!114 &11481446
 MonoBehaviour:
@@ -294,6 +295,7 @@ MonoBehaviour:
   faceRight: 0
   dodgeByPlayerPos: 1
   dodging: 0
+  predictPlayerMovment: 0
   MOVEMENT: 4
   TURN: 4
 --- !u!114 &11497884

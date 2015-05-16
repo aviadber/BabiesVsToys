@@ -4,16 +4,19 @@ using System.Collections;
 [System.Serializable]
 public  class GameManager:MonoBehaviour
 {
+   
     public static ArrayList collectableList;
     public static ArrayList enemyList;
     public static ArrayList obstacleList; //#distObs
     public static GameObject playerOne;
+    public static GameObject clownAnimations;
     public static GameObject deathHandler;
     public static GameObject sfxHandler;
     public static GameObject scoreObject;
     public static GameObject playerAnimations;
     public static BabyAnimationHandler babyAnimationHandler;
     public static PlayerPointHandler pointHandler;
+    public static clownAnimationHandler clownAnimationHandler;
     public static DeathFxHandler DeathFxHandler;
     public static MusicFxHandler MusicFxHandler;
     public static ScoreHandler scoreHandler;
@@ -21,6 +24,7 @@ public  class GameManager:MonoBehaviour
      
     void Start()
     {
+        clownAnimations = GameObject.Find("clownAnimations");
         playerAnimations = GameObject.Find("playerAnimations");
         scoreObject = GameObject.Find("scoreHandler");
         sfxHandler = GameObject.Find("sfxHandler");
@@ -48,6 +52,10 @@ public  class GameManager:MonoBehaviour
         if (playerAnimations != null)
         {
             babyAnimationHandler = playerAnimations.GetComponent<BabyAnimationHandler>();
+        }
+        if (clownAnimations != null)
+        {
+            clownAnimationHandler = clownAnimations.GetComponent<clownAnimationHandler>();
         }
     }
 
@@ -174,5 +182,10 @@ public  class GameManager:MonoBehaviour
     public static void setWalkGunAnim(bool b)
     {
         babyAnimationHandler.setWalkingGun(b);
+    }
+
+    public static void setClownAttack(bool p0)
+    {
+        clownAnimationHandler.setIsAttacking(p0);
     }
 }
