@@ -73,7 +73,7 @@ public class EnemyAI : MonoBehaviour
             // print(MOVEMENT);
             if (dodging)
                 dodge();
-            else if (MOVEMENT == BLOCKED.NULL)
+            else if (MOVEMENT == BLOCKED.NULL )
             { /*#obsend*/
                // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 float oldY = this.transform.position.y;

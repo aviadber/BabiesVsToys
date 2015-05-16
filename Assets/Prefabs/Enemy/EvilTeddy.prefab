@@ -254,8 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7bc7f15e11f3642953e0ca0ee68999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathFxGameObject: {fileID: 100002, guid: b915ea55954041f40a3fd40ee1840dda, type: 2}
   currentHealth: 100
+  scoreAmount: 15
 --- !u!114 &11405364
 MonoBehaviour:
   m_ObjectHideFlags: 1

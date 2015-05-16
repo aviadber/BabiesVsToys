@@ -5,6 +5,7 @@ using System.Collections;
 public class EnemyHealth : MonoBehaviour
 {
     public int currentHealth = 100;
+    public int scoreAmount;
 	// Use this for initialization
 	void Start () {
 	
@@ -21,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
         print(currentHealth);
         if (currentHealth <= 0)
         {
+            GameManager.increaseScore(scoreAmount);
             GameManager.instantiateEnemyFx(this.transform);
             GameManager.playObstacleExplosionSfx();
             GameManager.enemyList.Remove(this.gameObject);

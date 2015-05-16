@@ -10,13 +10,16 @@ public  class GameManager:MonoBehaviour
     public static GameObject playerOne;
     public static GameObject deathHandler;
     public static GameObject sfxHandler;
+    public static GameObject scoreObject;
     public static PlayerPointHandler pointHandler;
     public static DeathFxHandler DeathFxHandler;
     public static MusicFxHandler MusicFxHandler;
+    public static ScoreHandler scoreHandler;
     
      
     void Start()
     {
+        scoreObject = GameObject.Find("scoreHandler");
         sfxHandler = GameObject.Find("sfxHandler");
         deathHandler = GameObject.Find("deathHandler");
         collectableList=new ArrayList();
@@ -34,6 +37,10 @@ public  class GameManager:MonoBehaviour
         if (sfxHandler != null)
         {
             MusicFxHandler = sfxHandler.GetComponent<MusicFxHandler>();
+        }
+        if (scoreObject != null)
+        {
+            scoreHandler = scoreObject.GetComponent<ScoreHandler>();
         }
     }
 
@@ -145,5 +152,10 @@ public  class GameManager:MonoBehaviour
     public static void playObstacleExplosionSfx()
     {
         MusicFxHandler.playObstableExplosionSoundFx();
+    }
+
+    public static void increaseScore(int scoreAmount)
+    {
+       scoreHandler.increaseScore(scoreAmount);
     }
 }
