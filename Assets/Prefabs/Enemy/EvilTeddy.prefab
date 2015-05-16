@@ -240,10 +240,17 @@ MonoBehaviour:
   stop: 0
   faceRight: 0
   dodgeByPlayerPos: 1
+<<<<<<< HEAD
   dodging: 0
   predictPlayerMovment: 0
   MOVEMENT: 4
   TURN: 4
+=======
+  dodging: 1
+  predictPlayerMovment: 1
+  MOVEMENT: 1
+  TURN: 2
+>>>>>>> origin/master
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

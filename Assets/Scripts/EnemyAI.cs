@@ -53,47 +53,51 @@ public class EnemyAI : MonoBehaviour
             //                range = Vector3.Distance(this.transform.position, _enemyInfoHolder.point.dockPoint.position); //range between enemy and player
             //          
         }
-
-        range = Vector3.Distance(this.transform.position, _enemyInfoHolder.point.dockPoint.position);
-        if (range <= 0.2f) // checks when enemy is near the player dock point and then occupies it 
+        if (!stop)
         {
+            range = Vector3.Distance(this.transform.position, _enemyInfoHolder.point.dockPoint.position);
+            if (range <= 0.2f) // checks when enemy is near the player dock point and then occupies it 
+            {
 
-            GameManager.OccupyPoint(_enemyInfoHolder.point);
-            pointHolding = _enemyInfoHolder.point.name;
-            gotPlayerPoint = true;
+                GameManager.OccupyPoint(_enemyInfoHolder.point);
+                pointHolding = _enemyInfoHolder.point.name;
+                gotPlayerPoint = true;
 
-        }
-        if (GameManager.isFreePoints())
-        {
-            
-            if (dodging)
-                dodge();
-
-           
-               // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
-            else if (MOVEMENT == BLOCKED.NULL)
-            { 
-
-                float oldY = this.transform.position.y;
-                transform.position = Vector3.MoveTowards(this.transform.position, _enemyInfoHolder.point.dockPoint.position, moveSpeed * Time.deltaTime);
-                if (transform.position.y >= 1.76f)
-                {
-                    transform.position=new Vector3(transform.position.x,oldY,transform.position.z);
-                    MOVEMENT = BLOCKED.UP;
-                    TURN = DODGE.DOWN;
-                    dodging = true;
-                }
-                else if (transform.position.y <= 0.18f) {
-                    transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
-                    MOVEMENT = BLOCKED.DOWN;
-                    TURN = DODGE.UP;
-                    dodging = true;
-                }
             }
-            else
-                rayHit();
+            if (GameManager.isFreePoints())
+            {
 
+                if (dodging)
+                    dodge();
+
+
+                // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
+                else if (MOVEMENT == BLOCKED.NULL)
+                {
+
+                    float oldY = this.transform.position.y;
+                    transform.position = Vector3.MoveTowards(this.transform.position,
+                        _enemyInfoHolder.point.dockPoint.position, moveSpeed*Time.deltaTime);
+                    if (transform.position.y >= 1.76f)
+                    {
+                        transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
+                        MOVEMENT = BLOCKED.UP;
+                        TURN = DODGE.DOWN;
+                        dodging = true;
+                    }
+                    else if (transform.position.y <= 0.18f)
+                    {
+                        transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
+                        MOVEMENT = BLOCKED.DOWN;
+                        TURN = DODGE.UP;
+                        dodging = true;
+                    }
+                }
+                else
+                    rayHit();
+
+            }
         }
 
 
