@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Configuration;
 using UnityEngine;
 using System.Collections;
 [System.Serializable]
@@ -16,6 +17,9 @@ public class PlayerAttack : MonoBehaviour
     public int typeOfAttack;
     public string rangedAttackKey;
     public int meleeAttackDmg;
+    private bool isAttacking = false;
+    public float attackAnimTime = 1;
+    private float attackAnimTimeSoFar = 0;
 
     // Use this for initialization
     void Start()
@@ -26,6 +30,16 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isAttacking)
+        {
+            attackAnimTimeSoFar += Time.deltaTime;
+            if (attackAnimTimeSoFar >= attackAnimTime)
+            {
+                GameManager.setAttackAnim(false);
+                attackAnimTimeSoFar = 0;
+                isAttacking = false;
+            }
+        }
         if (typeOfAttack == 1)
         {
             GameManager.setWalkGunAnim(true);
@@ -94,6 +108,8 @@ public class PlayerAttack : MonoBehaviour
                 print("enemydsaasdsad");
                 if (typeOfAttack == 0)// melee attack
                 {
+                    isAttacking = true;
+                    GameManager.setAttackAnim(true);
                     Instantiate(EffectGameObject, offensePoint.transform.position, offensePoint.transform.rotation);
                     health.DecreaseHealth(meleeAttackDmg);
                 }
@@ -105,7 +121,10 @@ public class PlayerAttack : MonoBehaviour
                 ObstacleHealth health = obj.GetComponent<ObstacleHealth>(); //#distObs
                 if (typeOfAttack == 0)// melee attack
                 {
+                    isAttacking = true;
+                    GameManager.setAttackAnim(true);
                     Instantiate(EffectGameObject, offensePoint.transform.position, offensePoint.transform.rotation);
+
                      health.DecreaseHealth(meleeAttackDmg);
                 }
             }
