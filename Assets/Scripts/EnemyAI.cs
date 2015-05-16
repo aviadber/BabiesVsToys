@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// #obs
 public enum BLOCKED { UP, DOWN, RIGHT, LEFT, NULL };
 public enum DODGE { UP, DOWN, RIGHT, LEFT, NULL };
-// #obsend
-//ALON!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 public class EnemyAI : MonoBehaviour
 {
     public float moveSpeed;
@@ -20,11 +18,9 @@ public class EnemyAI : MonoBehaviour
     private bool isRegistered = false;
     // Use this for initialization
 
-    // #obs
     public bool stop = false, faceRight = false, dodgeByPlayerPos = true, dodging = false;
     public BLOCKED MOVEMENT = BLOCKED.NULL;
     public DODGE TURN = DODGE.NULL;
-    // #obsend
 
     void Awake()
     {
@@ -69,33 +65,41 @@ public class EnemyAI : MonoBehaviour
         }
         if (GameManager.isFreePoints())
         {
-            /*#obs*/
-            // print(MOVEMENT);
+            
             if (dodging)
                 dodge();
+<<<<<<< HEAD
             else if (MOVEMENT == BLOCKED.NULL )
             { /*#obsend*/
                // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+=======
+            else if (MOVEMENT == BLOCKED.NULL)
+            { 
+>>>>>>> origin/master
                 float oldY = this.transform.position.y;
                 transform.position = Vector3.MoveTowards(this.transform.position, _enemyInfoHolder.point.dockPoint.position, moveSpeed * Time.deltaTime);
                 if (transform.position.y >= 1.76f)
                 {
                     transform.position=new Vector3(transform.position.x,oldY,transform.position.z);
+                    MOVEMENT = BLOCKED.UP;
+                    TURN = DODGE.DOWN;
+                    dodging = true;
                 }
-                
+                else if (transform.position.y <= 0.18f) {
+                    transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
+                    MOVEMENT = BLOCKED.DOWN;
+                    TURN = DODGE.UP;
+                    dodging = true;
+                }
             }
-
-            // #obsk
             else
                 rayHit();
 
-            // #obsend
         }
 
 
         if (range > 0.30 && gotPlayerPoint)//releases the attack point if the enemy is not near it 
         {
-
             GameManager.ReleasePoint(_enemyInfoHolder.point);
             gotPlayerPoint = false;
 
@@ -109,17 +113,14 @@ public class EnemyAI : MonoBehaviour
         if (transform.position.x - _enemyInfoHolder.playerGameObject.transform.position.x < 0)
         {
             transform.rotation = new Quaternion(0, 180, 0, 0);
-            //#obs
             faceRight = true;
         }
         else
         {
             transform.rotation = new Quaternion(0, 0, 0, 0);
-            //#obs
             faceRight = false;
         }
     }
-    //#obs
     void rayHit()
     {
         print("in RAYHIT!");
@@ -158,38 +159,14 @@ public class EnemyAI : MonoBehaviour
 
 
                     break;
-                //case BLOCKED.DOWN:
-                //    if (byPlayerPos)
-                //    {
-                //        if (_enemyInfoHolder.point.attackPoint.transform.position.x < transform.position.x)
-                //        {
-                //            TURN = DODGE.LEFT;
-                //        }
-                //    }
-                //    else // random
-                //    {
-                //        if (Random.value < 0.5f)
-                //        {
-                //            TURN = DODGE.LEFT;
-                //        }
-                //        else
-                //        {
-                //            TURN = DODGE.RIGHT;
-                //        }
-                //    }
-                //    dodging = true;
-                //    if (_enemyInfoHolder.point.attackPoint.transform.position.x > transform.position.x)
-                //        direction += Vector3.right;
-                //    else
-                //        direction += Vector3.left;
-
-                //    transform.Translate(moveSpeed * direction.normalized * Time.deltaTime);
-                //    break;
+               
                 case BLOCKED.RIGHT:
                 case BLOCKED.LEFT:
                     if (dodgeByPlayerPos)
                     {
-                        if (_enemyInfoHolder.point.dockPoint.transform.position.y > transform.position.y)
+
+
+                        if ((_enemyInfoHolder.point.dockPoint.transform.position.y > transform.position.y || transform.position.y <= 1.76f) && !(transform.position.y <= 0.18f))
                         {
                             TURN = DODGE.UP;
                         }
@@ -213,17 +190,7 @@ public class EnemyAI : MonoBehaviour
 
 
                     break;
-                //case BLOCKED.RIGHT:
-                //    direction += Vector3.left;
-                //    if (_enemyInfoHolder.point.attackPoint.transform.position.y > transform.position.y)
-                //        direction += Vector3.up;
-                //    else
-                //        direction += Vector3.down;
-
-                //    transform.Translate(moveSpeed * direction.normalized * Time.deltaTime);
-                //    break;
-                //default:
-                //    break;
+         
             }
         }
     }
@@ -240,24 +207,36 @@ public class EnemyAI : MonoBehaviour
         }
 
         Vector3 direction = new Vector3(0, 0, 0);
+        Vector3 translation = new Vector3(0, 0, 0);
 
         switch (TURN)
         {
             case DODGE.UP:
-
-                transform.Translate(moveSpeed * Vector3.up * Time.deltaTime);
+                 translation = moveSpeed * Vector3.up * Time.deltaTime;
+                if (transform.position.y >= 1.76f)
+                {
+                    TURN = DODGE.DOWN;
+                }
+                else
+                {
+                    transform.Translate(translation);
+                }
                 break;
             case DODGE.DOWN:
-
-                transform.Translate(moveSpeed * Vector3.down * Time.deltaTime);
-
+                 translation = moveSpeed * Vector3.down * Time.deltaTime;
+                 if (transform.position.y <= 0.18f)
+                {
+                    TURN = DODGE.UP;
+                }
+                else
+                {
+                    transform.Translate(translation);
+                }
                 break;
+                
             case DODGE.RIGHT:
 
-                //if (MOVEMENT == BLOCKED.UP)
-                //    direction += Vector3.down;
-                //else
-                //    direction += Vector3.up;
+
 
                 if (faceRight)
                     direction += Vector3.left;
@@ -283,7 +262,6 @@ public class EnemyAI : MonoBehaviour
         }
 
     }
-    //#obsend
 }
 
 
