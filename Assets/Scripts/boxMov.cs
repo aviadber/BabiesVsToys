@@ -17,6 +17,8 @@ public class boxMov : MonoBehaviour
     private GameObject leftBorder, rightBorder;
     public bool moveRight;
     public bool moveLeft;
+    public bool moveUp;
+    public bool moveDown;
     // #obs
     public bool blockedUp, blockedDown, blockedRight, blockedLeft;
     // #obsend
@@ -61,29 +63,29 @@ public class boxMov : MonoBehaviour
             }
 
         }
-        if (Input.GetKey(up)/*#obs*/&& !blockedUp /*#obsend*/)
+        if (Input.GetKey(up)&& !blockedUp )
         {
            
-            if (/*transform.position.z < 1.22 #CHECK-BERMAN &&*/ transform.position.y < 1.78)
+            if (transform.position.y < 1.78)
                 transform.position = new Vector3(transform.position.x, transform.position.y + moveSpeed * Time.deltaTime, transform.position.z);
             else
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            moveUp = true;
+            moveDown = false;
         }
         if (Input.GetKey(down))
-            if (Input.GetKey(down)/*#obs*/&& !blockedDown /*#obsend*/ )
+            if (Input.GetKey(down)&& !blockedDown )
             {
                 if (transform.position.y > 0.16)
                     transform.position = new Vector3(transform.position.x, transform.position.y - moveSpeed * Time.deltaTime, transform.position.z);
                 else
                     transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                moveUp = false;
+                moveDown = true;
             }
-
+        
 
     }
-
-
-
-
 
 }
 
