@@ -65,7 +65,7 @@ public class EnemyAI : MonoBehaviour
                 GameManager.OccupyPoint(_enemyInfoHolder.point);
 
                 STATE = ANIM.ATTACKING;
-                GetComponentInChildren<Animator>().Play("ClownAttack");
+                GetComponentInChildren<Animator>().Play("Attacking");
 
                 pointHolding = _enemyInfoHolder.point.name;
                 gotPlayerPoint = true;
@@ -112,7 +112,7 @@ public class EnemyAI : MonoBehaviour
         {
             GameManager.ReleasePoint(_enemyInfoHolder.point);
             //GameManager.setClownWalk(true);
-            GetComponentInChildren<Animator>().Play("clown_walk");
+            GetComponentInChildren<Animator>().Play("Walking");
             STATE = ANIM.WALKING;
             
             pointHolding = _enemyInfoHolder.point.name;
