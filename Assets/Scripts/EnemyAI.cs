@@ -4,6 +4,8 @@ using System.Collections;
 public enum BLOCKED { UP, DOWN, RIGHT, LEFT, NULL };
 public enum DODGE { UP, DOWN, RIGHT, LEFT, NULL };
 
+public enum ANIM {WALKING, ATTACKING, STANDING};
+
 public class EnemyAI : MonoBehaviour
 {
     public float moveSpeed;
@@ -21,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     public bool stop = false, faceRight = false, dodgeByPlayerPos = true, dodging = false, predictPlayerMovment = false;
     public BLOCKED MOVEMENT = BLOCKED.NULL;
     public DODGE TURN = DODGE.NULL;
+    public ANIM STATE = ANIM.STANDING;
 
     void Awake()
     {
@@ -60,6 +63,10 @@ public class EnemyAI : MonoBehaviour
             {
 
                 GameManager.OccupyPoint(_enemyInfoHolder.point);
+
+                STATE = ANIM.ATTACKING;
+                GetComponentInChildren<Animator>().Play("ClownAttack");
+
                 pointHolding = _enemyInfoHolder.point.name;
                 gotPlayerPoint = true;
 
@@ -104,6 +111,11 @@ public class EnemyAI : MonoBehaviour
         if (range > 0.30 && gotPlayerPoint)//releases the attack point if the enemy is not near it 
         {
             GameManager.ReleasePoint(_enemyInfoHolder.point);
+            //GameManager.setClownWalk(true);
+            GetComponentInChildren<Animator>().Play("clown_walk");
+            STATE = ANIM.WALKING;
+            
+            pointHolding = _enemyInfoHolder.point.name;
             gotPlayerPoint = false;
 
             if (enemyAttack != null) enemyAttack.playerInRange = false;

@@ -41,13 +41,13 @@ public class EnemyAttack : MonoBehaviour
         if (timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
         {
             // ... attack.
-//            GameManager.setClownAttack(true);
+            //GameManager.setClownAttack(true);
             Attack();
             Debug.Log("attacking player");
         }
         else
         {
-//            GameManager.setClownAttack(false); 
+           //GameManager.setClownAttack(false); 
         }
 
         // If the player has zero or less health...

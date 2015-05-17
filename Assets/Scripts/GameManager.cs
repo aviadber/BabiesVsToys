@@ -184,8 +184,13 @@ public  class GameManager:MonoBehaviour
         babyAnimationHandler.setWalkingGun(b);
     }
 
-    public static void setClownAttack(bool p0)
-    {
-        clownAnimationHandler.setIsAttacking(p0);
-    }
+    //public static void setClownAttack(bool p0)
+    //{
+    //    clownAnimationHandler.setIsAttacking(p0);
+    //}
+
+    //public static void setClownWalk(bool p0)
+    //{
+    //    clownAnimationHandler.setIsWalking(p0);
+    //}
 }

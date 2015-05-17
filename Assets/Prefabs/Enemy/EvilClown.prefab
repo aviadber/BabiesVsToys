@@ -299,6 +299,7 @@ MonoBehaviour:
   predictPlayerMovment: 0
   MOVEMENT: 4
   TURN: 4
+  STATE: 2
 --- !u!114 &11493124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -310,6 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f80df89b4533748409598b1318b2d18e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttacking: 0
+  isWalking: 0
 --- !u!114 &11497884
 MonoBehaviour:
   m_ObjectHideFlags: 1

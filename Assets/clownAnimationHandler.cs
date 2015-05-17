@@ -5,23 +5,28 @@ public class clownAnimationHandler : MonoBehaviour
 {
     private Animator clownAnimator;
 
-    private bool isAttacking, isWalk;
-	// Use this for initialization
-	void Start ()
-	{
-	    clownAnimator = GetComponent<Animator>();
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    public void setIsAttacking(bool state)
+    public bool isAttacking, isWalking;
+    // Use this for initialization
+    private void Start()
     {
-        isAttacking = state;
-//        clownAnimator.SetBool("isAttacking",isAttacking);
+        clownAnimator = GetComponent<Animator>();
+
     }
+
+    // Update is called once per frame
+    private void Update()
+    {
+
     }
+
+    //public void setIsAttacking(bool state)
+    //{
+    //    clownAnimator.SetBool("isAttacking", state);
+    //}
+
+    //public void setIsWalking(bool state)
+    //{
+    //    clownAnimator.SetBool("isWalking", state);
+    //}
 }
+
