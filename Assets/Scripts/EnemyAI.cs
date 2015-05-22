@@ -1,38 +1,56 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
-public enum BLOCKED { UP, DOWN, RIGHT, LEFT, NULL };
-public enum DODGE { UP, DOWN, RIGHT, LEFT, NULL };
+public enum BLOCKED
+{
+    UP,
+    DOWN,
+    RIGHT,
+    LEFT,
+    NULL
+};
+public enum DODGE
+{
+    UP,
+    DOWN,
+    RIGHT,
+    LEFT,
+    NULL
+};
 
-public enum ANIM {WALKING, ATTACKING, STANDING};
+public enum ANIM
+{
+    WALKING,
+    ATTACKING,
+    STANDING
+};
 
 public class EnemyAI : MonoBehaviour
 {
-    public float moveSpeed;
-    private float range;
-
-    public bool gotPlayerPoint = false;
-    public EnemyInfoHolder _enemyInfoHolder;
-    public string pointHolding;
-
-    private EnemyAttack enemyAttack;
-
-    private bool isRegistered = false;
-    // Use this for initialization
-
-    public bool stop = false, faceRight = false, dodgeByPlayerPos = true, dodging = false, predictPlayerMovment = false;
     public BLOCKED MOVEMENT = BLOCKED.NULL;
-    public DODGE TURN = DODGE.NULL;
     public ANIM STATE = ANIM.STANDING;
+    public DODGE TURN = DODGE.NULL;
+    public EnemyInfoHolder _enemyInfoHolder;
+    public bool dodgeByPlayerPos = true, dodging = false;
+    private EnemyAttack enemyAttack;
+    public bool faceRight = false;
+    public bool gotPlayerPoint = false;
+    private bool isRegistered;
+    public float moveSpeed;
+    public string pointHolding;
+    public bool predictPlayerMovment = false;
+    private float range;
+    public bool stop = false;
 
-    void Awake()
+    private void Awake()
     {
         // Setting up the references.
 
         enemyAttack = GetComponent<EnemyAttack>();
-
     }
-    void Start()
+
+    private void Start()
     {
         //        print("start");
         //		   GameManager.registerEnemy(gameObject);
@@ -41,27 +59,26 @@ public class EnemyAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (!isRegistered)
         {
 //            print("registering ennemy");
-            GameManager.registerEnemy(this.gameObject);
+            GameManager.registerEnemy(gameObject);
             isRegistered = true;
         }
         if (!gotPlayerPoint && GameManager.isFreePoints())
         {
-            _enemyInfoHolder = GameManager.getInfo4Enemy(this.gameObject.transform);
+            _enemyInfoHolder = GameManager.getInfo4Enemy(gameObject.transform);
 
             //                range = Vector3.Distance(this.transform.position, _enemyInfoHolder.point.dockPoint.position); //range between enemy and player
             //          
         }
         if (!stop)
         {
-            range = Vector3.Distance(this.transform.position, _enemyInfoHolder.point.dockPoint.position);
+            range = Vector3.Distance(transform.position, _enemyInfoHolder.point.dockPoint.position);
             if (range <= 0.2f) // checks when enemy is near the player dock point and then occupies it 
             {
-
                 GameManager.OccupyPoint(_enemyInfoHolder.point);
 
                 STATE = ANIM.ATTACKING;
@@ -69,22 +86,19 @@ public class EnemyAI : MonoBehaviour
 
                 pointHolding = _enemyInfoHolder.point.name;
                 gotPlayerPoint = true;
-
             }
             if (GameManager.isFreePoints())
             {
-
                 if (dodging)
                     dodge();
 
 
-                // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+                    // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
                 else if (MOVEMENT == BLOCKED.NULL)
                 {
-
-                    float oldY = this.transform.position.y;
-                    transform.position = Vector3.MoveTowards(this.transform.position,
+                    float oldY = transform.position.y;
+                    transform.position = Vector3.MoveTowards(transform.position,
                         _enemyInfoHolder.point.dockPoint.position, moveSpeed*Time.deltaTime);
                     if (transform.position.y >= 1.76f)
                     {
@@ -103,18 +117,17 @@ public class EnemyAI : MonoBehaviour
                 }
                 else
                     rayHit();
-
             }
         }
 
 
-        if (range > 0.30 && gotPlayerPoint)//releases the attack point if the enemy is not near it 
+        if (range > 0.30 && gotPlayerPoint) //releases the attack point if the enemy is not near it 
         {
             GameManager.ReleasePoint(_enemyInfoHolder.point);
             //GameManager.setClownWalk(true);
             GetComponentInChildren<Animator>().Play("Walking");
             STATE = ANIM.WALKING;
-            
+
             pointHolding = _enemyInfoHolder.point.name;
             gotPlayerPoint = false;
 
@@ -136,7 +149,8 @@ public class EnemyAI : MonoBehaviour
             faceRight = false;
         }
     }
-    void rayHit()
+
+    private void rayHit()
     {
         print("in RAYHIT!");
 
@@ -170,9 +184,12 @@ public class EnemyAI : MonoBehaviour
                             TURN = DODGE.RIGHT;
                         }
                     }
-                    if (predictPlayerMovment) {
-                        float absDiff = System.Math.Abs(_enemyInfoHolder.point.dockPoint.transform.position.y - transform.position.y);
-                        if (absDiff < 0.25) {
+                    if (predictPlayerMovment)
+                    {
+                        float absDiff =
+                            Math.Abs(_enemyInfoHolder.point.dockPoint.transform.position.y - transform.position.y);
+                        if (absDiff < 0.25)
+                        {
                             if (GameObject.FindGameObjectWithTag("player").GetComponent<boxMov>().moveLeft)
                                 TURN = DODGE.LEFT;
                             else
@@ -183,14 +200,13 @@ public class EnemyAI : MonoBehaviour
 
 
                     break;
-               
+
                 case BLOCKED.RIGHT:
                 case BLOCKED.LEFT:
                     if (dodgeByPlayerPos)
                     {
-
-
-                        if ((_enemyInfoHolder.point.dockPoint.transform.position.y > transform.position.y || transform.position.y <= 1.76f) && !(transform.position.y <= 0.18f))
+                        if ((_enemyInfoHolder.point.dockPoint.transform.position.y > transform.position.y ||
+                             transform.position.y <= 1.76f) && !(transform.position.y <= 0.18f))
                         {
                             TURN = DODGE.UP;
                         }
@@ -212,7 +228,8 @@ public class EnemyAI : MonoBehaviour
                     }
                     if (predictPlayerMovment)
                     {
-                        float absDiff = System.Math.Abs(_enemyInfoHolder.point.dockPoint.transform.position.x - transform.position.x);
+                        float absDiff =
+                            Math.Abs(_enemyInfoHolder.point.dockPoint.transform.position.x - transform.position.x);
                         if (absDiff < 0.25)
                         {
                             if (GameObject.FindGameObjectWithTag("player").GetComponent<boxMov>().moveUp)
@@ -225,14 +242,13 @@ public class EnemyAI : MonoBehaviour
 
 
                     break;
-         
             }
         }
     }
 
-    void dodge()
+    private void dodge()
     {
-       // print("in DODGE!");
+        // print("in DODGE!");
 
         if (MOVEMENT == BLOCKED.NULL)
         {
@@ -241,13 +257,13 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        Vector3 direction = new Vector3(0, 0, 0);
-        Vector3 translation = new Vector3(0, 0, 0);
+        var direction = new Vector3(0, 0, 0);
+        var translation = new Vector3(0, 0, 0);
 
         switch (TURN)
         {
             case DODGE.UP:
-                 translation = moveSpeed * Vector3.up * Time.deltaTime;
+                translation = moveSpeed*Vector3.up*Time.deltaTime;
                 if (transform.position.y >= 1.76f)
                 {
                     TURN = DODGE.DOWN;
@@ -258,8 +274,8 @@ public class EnemyAI : MonoBehaviour
                 }
                 break;
             case DODGE.DOWN:
-                 translation = moveSpeed * Vector3.down * Time.deltaTime;
-                 if (transform.position.y <= 0.18f)
+                translation = moveSpeed*Vector3.down*Time.deltaTime;
+                if (transform.position.y <= 0.18f)
                 {
                     TURN = DODGE.UP;
                 }
@@ -268,9 +284,8 @@ public class EnemyAI : MonoBehaviour
                     transform.Translate(translation);
                 }
                 break;
-                
-            case DODGE.RIGHT:
 
+            case DODGE.RIGHT:
 
 
                 if (faceRight)
@@ -279,24 +294,19 @@ public class EnemyAI : MonoBehaviour
                     direction += Vector3.right;
 
 
-                transform.Translate(moveSpeed * direction.normalized * Time.deltaTime);
+                transform.Translate(moveSpeed*direction.normalized*Time.deltaTime);
 
                 break;
 
             case DODGE.LEFT:
                 if (faceRight)
-                    transform.Translate(moveSpeed * Vector3.right * Time.deltaTime);
+                    transform.Translate(moveSpeed*Vector3.right*Time.deltaTime);
                 else
-                    transform.Translate(moveSpeed * Vector3.left * Time.deltaTime);
+                    transform.Translate(moveSpeed*Vector3.left*Time.deltaTime);
 
                 break;
             default:
                 break;
-
-
         }
-
     }
 }
-
-

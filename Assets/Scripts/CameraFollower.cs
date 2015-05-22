@@ -1,26 +1,25 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class CameraFollower : MonoBehaviour
 {
+    private bool cameraIsStopped;
+    public bool firstStop = false;
     public GameObject objToFollow;
+    public float smoothFactor;
     public bool stopCamera = false;
     private Vector3 velocity = Vector3.zero;
-    private bool cameraIsStopped = false;
     private float y, z;
-    public float smoothFactor;
-    public bool firstStop = false;
     // Use this for initialization
-    void Start()
+    private void Start()
     {
-
         y = transform.position.y;
         z = transform.position.z;
     }
 
     // Update is called once per frame
-    void Update()
-    {//this makes camera follow the player
+    private void Update()
+    {
+//this makes camera follow the player
         if (stopCamera)
         {
             if (GameManager.enemyList.Count == 0)
@@ -29,9 +28,9 @@ public class CameraFollower : MonoBehaviour
                 {
                     firstStop = true;
                     cameraIsStopped = false;
-                    
                 }
-                transform.position = Vector3.MoveTowards(transform.position, objToFollow.transform.position, smoothFactor);
+                transform.position = Vector3.MoveTowards(transform.position, objToFollow.transform.position,
+                    smoothFactor);
                 transform.position = new Vector3(transform.position.x, y, z);
             }
         }
@@ -49,8 +48,5 @@ public class CameraFollower : MonoBehaviour
             GameManager.activateContinueTextBlink();
             firstStop = false;
         }
-        
-
-
     }
 }

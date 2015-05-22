@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -7,26 +6,26 @@ public class PlayerHealth : MonoBehaviour
 //    public GameObject deathFxGameObject;
 //    public int healthAmount;
 
-    public int startingHealth = 100;                            // The amount of health the player starts the game with.
-    public int currentHealth = 100;                                   // The current health the player has.
-    public Slider healthSlider;                                 // Reference to the UI's health bar.
-    public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
-    public AudioClip deathClip;                                 // The audio clip to play when the player dies.
-    public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
-    public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
+    public int currentHealth = 100; // The current health the player has.
+    public Image damageImage; // Reference to an image to flash on the screen on being hurt.
+    private bool damaged; // True when the player gets damaged.
+    public AudioClip deathClip; // The audio clip to play when the player dies.
+    public Color flashColour = new Color(1f, 0f, 0f, 0.1f); // The colour the damageImage is set to, to flash.
+    public float flashSpeed = 5f; // The speed the damageImage will fade at.
+    public Slider healthSlider; // Reference to the UI's health bar.
 
     // Private
-   // Animator anim;                                              // Reference to the Animator component.
-   // AudioSource playerAudio;                                    // Reference to the AudioSource component.
-   // PlayerMovement playerMovement;                              // Reference to the player's movement.
-   // PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
-    bool isDead;                                                // Whether the player is dead.
-    bool damaged;                                               // True when the player gets damaged.
+    // Animator anim;                                              // Reference to the Animator component.
+    // AudioSource playerAudio;                                    // Reference to the AudioSource component.
+    // PlayerMovement playerMovement;                              // Reference to the player's movement.
+    // PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
 
     private GameObject heart;
+    private bool isDead; // Whether the player is dead.
+    public int startingHealth = 100; // The amount of health the player starts the game with.
 
 
-    void Awake()
+    private void Awake()
     {
         // Setting up the references.
 //        anim = GetComponent<Animator>();
@@ -37,15 +36,14 @@ public class PlayerHealth : MonoBehaviour
         // Set the initial health of the player.
         currentHealth = startingHealth;
         heart = GameObject.FindGameObjectWithTag("heart");
-
     }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
+    // Use this for initialization
+    private void Start()
+    {
+    }
 
-    void Update()
+    private void Update()
     {
         // If the player has just been damaged...
         if (damaged)
@@ -53,16 +51,16 @@ public class PlayerHealth : MonoBehaviour
             // ... set the colour of the damageImage to the flash colour.
             damageImage.color = flashColour;
         }
-        // Otherwise...
+            // Otherwise...
         else
         {
             // ... transition the colour back to clear.
-            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+            damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed*Time.deltaTime);
         }
 
         // Reset the damaged flag.
         damaged = false;
-        heart.transform.localScale = Vector3.Lerp(heart.transform.localScale,new Vector3(1, 1, 1), Time.deltaTime);
+        heart.transform.localScale = Vector3.Lerp(heart.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime);
     }
 
     public void TakeDamage(int amount)
@@ -75,10 +73,10 @@ public class PlayerHealth : MonoBehaviour
 
         // Set the health bar's value to the current health.
         healthSlider.value = currentHealth;
-        heart.transform.localScale = new Vector3(1.25f,1.25f,1.25f);
+        heart.transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
 
         // Play the hurt sound effect.
-     //   playerAudio.Play();
+        //   playerAudio.Play();
 
         // If the player has lost all it's health and the death flag hasn't been set yet...
         if (currentHealth <= 0 && !isDead)
@@ -89,11 +87,11 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    void Death()
+    private void Death()
     {
         // Set the death flag so this function won't be called again.
         isDead = true;
-        transform.rotation = new Quaternion(90, 90,0 , 0);
+        transform.rotation = new Quaternion(90, 90, 0, 0);
 
         // Turn off any remaining shooting effects.
 //        playerShooting.DisableEffects();
@@ -108,7 +106,7 @@ public class PlayerHealth : MonoBehaviour
 //        // Turn off the movement and shooting scripts.
 //        playerMovement.enabled = false;
 //        playerShooting.enabled = false;
-    }       
+    }
 
 //    public void DecreaseHealth(int amount)
 //    {
@@ -122,5 +120,4 @@ public class PlayerHealth : MonoBehaviour
 //        }
 //
 //    }
-
 }

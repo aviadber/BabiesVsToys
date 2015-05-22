@@ -12,7 +12,7 @@ public class RegisterObstacle : MonoBehaviour {
 	void Update () {
         if (!isRegistered)
         {
-            print("registering Obstacle");
+
             GameManager.registerObstacle(this.gameObject);
             isRegistered = true;
         }

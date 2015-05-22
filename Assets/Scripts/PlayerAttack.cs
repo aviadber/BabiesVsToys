@@ -1,34 +1,34 @@
 ﻿using System;
-using System.Net.Configuration;
-using UnityEngine;
 using System.Collections;
-[System.Serializable]
+using UnityEngine;
+
+[Serializable]
 public class PlayerAttack : MonoBehaviour
 {
-    public GameObject projectileGameObject;
     public GameObject EffectGameObject;
-    public GameObject offensePoint;
-    public GameObject waterGunExitPoint;
-    public float minAttackRange;
-    private float range;
+    public float attackAnimTime = 1;
+    private float attackAnimTimeSoFar;
+    public string attackKey;
     private bool canAttack = false;
     public ArrayList canAttackList;
-    public string attackKey;
-    public int typeOfAttack;
-    public string rangedAttackKey;
+    private bool isAttacking;
     public int meleeAttackDmg;
-    private bool isAttacking = false;
-    public float attackAnimTime = 1;
-    private float attackAnimTimeSoFar = 0;
+    public float minAttackRange;
+    public GameObject offensePoint;
+    public GameObject projectileGameObject;
+    private float range;
+    public string rangedAttackKey;
+    public int typeOfAttack;
+    public GameObject waterGunExitPoint;
 
     // Use this for initialization
-    void Start()
+    private void Start()
     {
         canAttackList = new ArrayList();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (isAttacking)
         {
@@ -43,20 +43,20 @@ public class PlayerAttack : MonoBehaviour
         if (typeOfAttack == 1)
         {
             GameManager.setWalkGunAnim(true);
-            
         }
         else
         {
             GameManager.setWalkGunAnim(false);
         }
-       
+
         if (GameManager.enemyList.Count > 0)
         {
             for (int i = 0; i < GameManager.enemyList.Count; i++)
             {
-                GameObject t = (GameObject)GameManager.enemyList[i];
+                var t = (GameObject) GameManager.enemyList[i];
 
-                if (t.transform != null) range = Vector3.Distance(offensePoint.transform.position, t.transform.position);
+                if (t.transform != null)
+                    range = Vector3.Distance(offensePoint.transform.position, t.transform.position);
                 //            print("range is :"+range);
                 if (range <= minAttackRange)
                     canAttackList.Add(t);
@@ -70,13 +70,13 @@ public class PlayerAttack : MonoBehaviour
         {
             for (int i = 0; i < GameManager.obstacleList.Count; i++)
             {
-                GameObject t = (GameObject)GameManager.obstacleList[i];
+                var t = (GameObject) GameManager.obstacleList[i];
 
-                if (t.transform != null) range = Vector3.Distance(offensePoint.transform.position, t.transform.position);
+                if (t.transform != null)
+                    range = Vector3.Distance(offensePoint.transform.position, t.transform.position);
                 if (range <= minAttackRange)
                 {
                     canAttackList.Add(t);
-                    
                 }
                 if (range > minAttackRange)
                     canAttackList.Remove(t);
@@ -90,10 +90,9 @@ public class PlayerAttack : MonoBehaviour
         {
             if (typeOfAttack == 0)
             {
-
                 for (int i = 0; i < canAttackList.Count; i++)
                 {
-                    Attack((GameObject)canAttackList[i]);
+                    Attack((GameObject) canAttackList[i]);
                 }
             }
         }
@@ -106,46 +105,32 @@ public class PlayerAttack : MonoBehaviour
         {
             if (obj.tag == "Enemy")
             {
-                EnemyHealth health = obj.GetComponent<EnemyHealth>();
-                print("enemydsaasdsad");
-                if (typeOfAttack == 0)// melee attack
+                var health = obj.GetComponent<EnemyHealth>();
+
+                if (typeOfAttack == 0) // melee attack
                 {
-                    
                     Instantiate(EffectGameObject, offensePoint.transform.position, offensePoint.transform.rotation);
                     isAttacking = true;
                     GameManager.setAttackAnim(true);
                     health.DecreaseHealth(meleeAttackDmg);
                 }
-            
             }
             else
             {
-                print("obs attack");
-                ObstacleHealth health = obj.GetComponent<ObstacleHealth>(); //#distObs
-                if (typeOfAttack == 0)// melee attack
+                var health = obj.GetComponent<ObstacleHealth>(); //#distObs
+                if (typeOfAttack == 0) // melee attack
                 {
-                   
                     Instantiate(EffectGameObject, offensePoint.transform.position, offensePoint.transform.rotation);
                     isAttacking = true;
                     GameManager.setAttackAnim(true);
 
-                     health.DecreaseHealth(meleeAttackDmg);
+                    health.DecreaseHealth(meleeAttackDmg);
                 }
             }
-     
-
-            
         }
-        if (typeOfAttack == 1)//ranged attack
+        if (typeOfAttack == 1) //ranged attack
         {
-            print("attacking water");
             Instantiate(projectileGameObject, waterGunExitPoint.transform.position, waterGunExitPoint.transform.rotation);
-
-
         }
-            
-
-
     }
 }
-

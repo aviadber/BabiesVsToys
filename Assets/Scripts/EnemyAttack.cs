@@ -1,22 +1,20 @@
 ﻿using UnityEngine;
-using System.Collections;
-
 
 public class EnemyAttack : MonoBehaviour
 {
-    public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
-    public int attackDamage = 1;               // The amount of health taken away per attack.
+    private Animator anim; // Reference to the animator component.
+    public int attackDamage = 1; // The amount of health taken away per attack.
     public float attackRange;
+    private EnemyHealth enemyHealth; // Reference to this enemy's health.
 
-    Animator anim;                              // Reference to the animator component.
-      GameObject player;                          // Reference to the player GameObject.
-    PlayerHealth playerHealth;                  // Reference to the player's health.
-    EnemyHealth enemyHealth;                    // Reference to this enemy's health.
-     public bool playerInRange = true;                         // Whether player is within the trigger collider and can be attacked.
-    float timer = 0f;                                // Timer for counting up to the next attack.
+    private GameObject player; // Reference to the player GameObject.
+    private PlayerHealth playerHealth; // Reference to the player's health.
+    public bool playerInRange = true; // Whether player is within the trigger collider and can be attacked.
+    public float timeBetweenAttacks = 0.5f; // The time in seconds between each attack.
+    private float timer; // Timer for counting up to the next attack.
 
 
-    void Awake()
+    private void Awake()
     {
         // Setting up the references.
         player = GameObject.Find("player");
@@ -26,8 +24,7 @@ public class EnemyAttack : MonoBehaviour
     }
 
 
-
-    void Update()
+    private void Update()
     {
         // Add the time since Update was last called to the timer.
         timer += Time.deltaTime;
@@ -43,11 +40,6 @@ public class EnemyAttack : MonoBehaviour
             // ... attack.
             //GameManager.setClownAttack(true);
             Attack();
-            Debug.Log("attacking player");
-        }
-        else
-        {
-           //GameManager.setClownAttack(false); 
         }
 
         // If the player has zero or less health...
@@ -59,7 +51,7 @@ public class EnemyAttack : MonoBehaviour
     }
 
 
-    void Attack()
+    private void Attack()
     {
         // Reset the timer.
         timer = 0f;

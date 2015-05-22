@@ -34,7 +34,7 @@ public class ContinueText : MonoBehaviour
                 }
 	            if (coin)
 	            {
-                    print("coin is true");
+                   
                     continueText.text = whatToWrite;
 	                
 	            }
