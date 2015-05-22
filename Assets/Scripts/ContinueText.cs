@@ -28,7 +28,7 @@ public class ContinueText : MonoBehaviour
 	        {
                 if (!coin)
                 {
-                    print("coin is false");
+
                     continueText.text = "";
                     
                 }
