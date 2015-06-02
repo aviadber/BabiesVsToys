@@ -235,17 +235,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7906446ca0139e41a33921f01fd3c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
-  gotPlayerPoint: 0
-  pointHolding: 
-  stop: 0
-  faceRight: 0
+  MOVEMENT: 4
+  STATE: 2
+  TURN: 4
   dodgeByPlayerPos: 1
   dodging: 0
+  faceRight: 0
+  gotPlayerPoint: 0
+  moveSpeed: 1.5
+  pointHolding: 
   predictPlayerMovment: 0
-  MOVEMENT: 4
-  TURN: 4
-  STATE: 2
+  stop: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -309,10 +309,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f58c82e3d99e141b46a43b83c44305, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: .5
   attackDamage: 1
   attackRange: 0
   playerInRange: 0
+  timeBetweenAttacks: .5
 --- !u!212 &21227676
 SpriteRenderer:
   m_ObjectHideFlags: 1

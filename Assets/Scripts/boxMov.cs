@@ -1,7 +1,7 @@
 ﻿
 
 using System;
-using UnityEditor;
+
 using UnityEngine;
 using System.Collections;
 
@@ -38,21 +38,24 @@ public class boxMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        GameManager.setWalkingAnim(false);
 
         if (Input.GetKey(right) && !blockedRight)
         {
+            GameManager.setWalkingAnim(true);
             if ((rightBorder.transform.position.x - GameManager.playerOne.transform.position.x) > 0)
             {
                 transform.position = new Vector3(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y,
                     transform.position.z);
                 transform.rotation = new Quaternion(0, 0, 0, 0);
                 moveRight = true;
+              
                 moveLeft = false;
             }
         }
         if (Input.GetKey(left) && !blockedLeft)
         {
+            GameManager.setWalkingAnim(true);
             if ((GameManager.playerOne.transform.position.x - leftBorder.transform.position.x) > 0)
             {
                 transform.position = new Vector3(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y,
@@ -60,28 +63,32 @@ public class boxMov : MonoBehaviour
                 transform.rotation = new Quaternion(0, 180, 0, 0);
                 moveRight = false;
                 moveLeft = true;
+              
             }
 
         }
         if (Input.GetKey(up)&& !blockedUp )
         {
-           
+            GameManager.setWalkingAnim(true);
             if (transform.position.y < 1.78)
                 transform.position = new Vector3(transform.position.x, transform.position.y + moveSpeed * Time.deltaTime, transform.position.z);
             else
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             moveUp = true;
             moveDown = false;
+      
         }
         if (Input.GetKey(down))
             if (Input.GetKey(down)&& !blockedDown )
             {
+                GameManager.setWalkingAnim(true);
                 if (transform.position.y > 0.16)
                     transform.position = new Vector3(transform.position.x, transform.position.y - moveSpeed * Time.deltaTime, transform.position.z);
                 else
                     transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 moveUp = false;
                 moveDown = true;
+           
             }
         
 

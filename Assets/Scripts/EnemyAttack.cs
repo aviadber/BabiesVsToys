@@ -20,7 +20,7 @@ public class EnemyAttack : MonoBehaviour
         player = GameObject.Find("player");
         playerHealth = player.GetComponent<PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
-        //anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
 
@@ -55,7 +55,7 @@ public class EnemyAttack : MonoBehaviour
     {
         // Reset the timer.
         timer = 0f;
-
+//        anim.Play("TeddyAttack");
         // If the player has health to lose...
         if (playerHealth.currentHealth > 0)
         {

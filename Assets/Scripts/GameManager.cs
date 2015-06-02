@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public static GameObject sfxHandler;
     public static GameObject scoreObject;
     public static GameObject playerAnimations;
-    public static BabyAnimationHandler babyAnimationHandler;
+    public static AnimationHandler animationHandler;
     public static PlayerPointHandler pointHandler;
     public static clownAnimationHandler clownAnimationHandler;
     public static DeathFxHandler DeathFxHandler;
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         }
         if (playerAnimations != null)
         {
-            babyAnimationHandler = playerAnimations.GetComponent<BabyAnimationHandler>();
+            animationHandler = playerAnimations.GetComponent<AnimationHandler>();
         }
         if (clownAnimations != null)
         {
@@ -165,12 +165,12 @@ public class GameManager : MonoBehaviour
 
     public static void setAttackAnim(bool b)
     {
-        babyAnimationHandler.setAttacking(b);
+        animationHandler.setAttacking(b);
     }
 
     public static void setWalkGunAnim(bool b)
     {
-        babyAnimationHandler.setWalkingGun(b);
+        animationHandler.setWalkingGun(b);
     }
 
     //public static void setClownAttack(bool p0)
@@ -182,4 +182,8 @@ public class GameManager : MonoBehaviour
     //{
     //    clownAnimationHandler.setIsWalking(p0);
     //}
+    public static void setWalkingAnim(bool b)
+    {
+        animationHandler.setWalking(b);
+    }
 }

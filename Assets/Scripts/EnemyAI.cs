@@ -42,11 +42,16 @@ public class EnemyAI : MonoBehaviour
     public bool predictPlayerMovment = false;
     private float range;
     public bool stop = false;
+    public bool isMoving=false;
+    private Animator animator;
+
+
+    
 
     private void Awake()
     {
         // Setting up the references.
-
+        animator = GetComponentInChildren<Animator>();
         enemyAttack = GetComponent<EnemyAttack>();
     }
 
@@ -61,6 +66,7 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+ 
         if (!isRegistered)
         {
 //            print("registering ennemy");
@@ -70,42 +76,63 @@ public class EnemyAI : MonoBehaviour
         if (!gotPlayerPoint && GameManager.isFreePoints())
         {
             _enemyInfoHolder = GameManager.getInfo4Enemy(gameObject.transform);
-
-            //                range = Vector3.Distance(this.transform.position, _enemyInfoHolder.point.dockPoint.position); //range between enemy and player
-            //          
         }
-        if (!stop)
+//        if (!stop)
+//        {
+
+
+        if (GameManager.isFreePoints())
         {
+
             range = Vector3.Distance(transform.position, _enemyInfoHolder.point.dockPoint.position);
+
             if (range <= 0.2f) // checks when enemy is near the player dock point and then occupies it 
             {
-                GameManager.OccupyPoint(_enemyInfoHolder.point);
-
-                STATE = ANIM.ATTACKING;
-                GetComponentInChildren<Animator>().Play("Attacking");
-
-                pointHolding = _enemyInfoHolder.point.name;
-                gotPlayerPoint = true;
+                if (!gotPlayerPoint)
+                {
+                    GameManager.OccupyPoint(_enemyInfoHolder.point);
+                    gotPlayerPoint = true;
+                    pointHolding = _enemyInfoHolder.point.name;
+                }
+                if (STATE != ANIM.ATTACKING)
+                {
+//                    print(gameObject.name);
+                    animator.Play("Attacking");
+                    STATE = ANIM.ATTACKING;
+                }
             }
-            if (GameManager.isFreePoints())
+            else if (range > 0.3f )
+            {
+                if (STATE != ANIM.WALKING)
+                {
+                    if (gotPlayerPoint)
+                    GameManager.ReleasePoint(_enemyInfoHolder.point);
+                    gotPlayerPoint = false;
+                    isMoving = true;
+                    STATE = ANIM.WALKING;
+                    animator.Play("Walking");
+                }
+            }
+            
+            if (STATE == ANIM.WALKING)
             {
                 if (dodging)
                     dodge();
-
-
-                    // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
                 else if (MOVEMENT == BLOCKED.NULL)
                 {
                     float oldY = transform.position.y;
                     transform.position = Vector3.MoveTowards(transform.position,
                         _enemyInfoHolder.point.dockPoint.position, moveSpeed*Time.deltaTime);
+                    isMoving = true;
+
                     if (transform.position.y >= 1.76f)
                     {
                         transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
                         MOVEMENT = BLOCKED.UP;
                         TURN = DODGE.DOWN;
                         dodging = true;
+                        isMoving = true;
+
                     }
                     else if (transform.position.y <= 0.18f)
                     {
@@ -113,26 +140,78 @@ public class EnemyAI : MonoBehaviour
                         MOVEMENT = BLOCKED.DOWN;
                         TURN = DODGE.UP;
                         dodging = true;
+                        isMoving = true;
+
                     }
                 }
-                else
+                                else
                     rayHit();
+
             }
         }
 
-
-        if (range > 0.30 && gotPlayerPoint) //releases the attack point if the enemy is not near it 
-        {
-            GameManager.ReleasePoint(_enemyInfoHolder.point);
-            //GameManager.setClownWalk(true);
-            GetComponentInChildren<Animator>().Play("Walking");
-            STATE = ANIM.WALKING;
-
-            pointHolding = _enemyInfoHolder.point.name;
-            gotPlayerPoint = false;
-
-            if (enemyAttack != null) enemyAttack.playerInRange = false;
-        }
+//            isMoving = false;
+//            if (GameManager.isFreePoints())
+//            {
+//                
+//                if (dodging)
+//                    dodge();
+//
+//
+//                    // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+//               
+//                else if (MOVEMENT == BLOCKED.NULL)
+//                {
+//                    float oldY = transform.position.y;
+//                    transform.position = Vector3.MoveTowards(transform.position,
+//                        _enemyInfoHolder.point.dockPoint.position, moveSpeed*Time.deltaTime);
+//                    isMoving = true;
+//                    
+//                    if (transform.position.y >= 1.76f)
+//                    {
+//                        transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
+//                        MOVEMENT = BLOCKED.UP;
+//                        TURN = DODGE.DOWN;
+//                        dodging = true;
+//                        isMoving = true;
+//                        
+//                    }
+//                    else if (transform.position.y <= 0.18f)
+//                    {
+//                        transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
+//                        MOVEMENT = BLOCKED.DOWN;
+//                        TURN = DODGE.UP;
+//                        dodging = true;
+//                        isMoving = true;
+//                       
+//                    }
+//                }
+//                else
+//                    rayHit();
+//            }
+//        }
+//
+//
+//        if (range > 0.30 && gotPlayerPoint) //releases the attack point if the enemy is not near it 
+//        {
+//            GameManager.ReleasePoint(_enemyInfoHolder.point);
+//            //GameManager.setClownWalk(true);
+//           
+//            STATE = ANIM.WALKING;
+//
+//            pointHolding = _enemyInfoHolder.point.name;
+//            gotPlayerPoint = false;
+//
+//            if (enemyAttack != null) enemyAttack.playerInRange = false;
+//        }
+////        if (!isMoving)
+////        {
+////            animator.Play("stand");
+////        }
+////        else
+////        {
+////            animator.Play("Walking");
+////        }
         CheckSide(_enemyInfoHolder); // this changes rotation according to player location
     }
 
