@@ -205,7 +205,7 @@ MonoBehaviour:
   - {fileID: 1293551200}
   randomEnemyes: 1
   enemyContainer:
-  - {fileID: 100002, guid: e49a5bd0ab8e45a44a510cf6e611ebdc, type: 2}
+  - {fileID: 0}
   - {fileID: 151266, guid: b1f69f4764a064e4dba393659917daab, type: 2}
 --- !u!1 &84980065
 GameObject:
@@ -771,10 +771,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83b596dbb24ada84e9476ce903cba5ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objToFollow: {fileID: 437335882}
-  stopCamera: 1
-  smoothFactor: 1
   firstStop: 0
+  objToFollow: {fileID: 437335882}
+  smoothFactor: 1
+  stopCamera: 1
 --- !u!1 &514093465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,7 +1528,7 @@ MonoBehaviour:
   - {fileID: 1533723672}
   randomEnemyes: 1
   enemyContainer:
-  - {fileID: 100002, guid: e49a5bd0ab8e45a44a510cf6e611ebdc, type: 2}
+  - {fileID: 0}
   - {fileID: 151266, guid: b1f69f4764a064e4dba393659917daab, type: 2}
 --- !u!4 &783836880
 Transform:
@@ -2238,7 +2238,7 @@ MonoBehaviour:
   - {fileID: 514093466}
   randomEnemyes: 1
   enemyContainer:
-  - {fileID: 100002, guid: e49a5bd0ab8e45a44a510cf6e611ebdc, type: 2}
+  - {fileID: 0}
   - {fileID: 151266, guid: b1f69f4764a064e4dba393659917daab, type: 2}
 --- !u!1 &1092673177
 GameObject:
