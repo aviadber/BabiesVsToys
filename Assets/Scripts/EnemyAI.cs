@@ -44,7 +44,11 @@ public class EnemyAI : MonoBehaviour
     public bool stop = false;
     public bool isMoving=false;
     private Animator animator;
-
+    // attack handling 
+    public int attackDamage = 1; // The amount of health taken away per attack.
+    public float attackRange;
+    public float timeBetweenAttacks = 0.5f; // The time in seconds between each attack.
+    private float timer; // Timer for counting up to the next attack.
 
     
 
@@ -96,13 +100,22 @@ public class EnemyAI : MonoBehaviour
                 }
                 if (STATE != ANIM.ATTACKING)
                 {
+
 //                    print(gameObject.name);
-                    animator.Play("Attacking");
+                    
+
                     STATE = ANIM.ATTACKING;
                 }
+                timer += Time.deltaTime;
+             if(gotPlayerPoint && timer>=timeBetweenAttacks)AttackPlayer();
+             else
+             {
+//                 animator.Play("stand");
+             }
             }
             else if (range > 0.3f )
             {
+                timer = 0f;
                 if (STATE != ANIM.WALKING)
                 {
                     if (gotPlayerPoint)
@@ -150,69 +163,20 @@ public class EnemyAI : MonoBehaviour
             }
         }
 
-//            isMoving = false;
-//            if (GameManager.isFreePoints())
-//            {
-//                
-//                if (dodging)
-//                    dodge();
-//
-//
-//                    // transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-//               
-//                else if (MOVEMENT == BLOCKED.NULL)
-//                {
-//                    float oldY = transform.position.y;
-//                    transform.position = Vector3.MoveTowards(transform.position,
-//                        _enemyInfoHolder.point.dockPoint.position, moveSpeed*Time.deltaTime);
-//                    isMoving = true;
-//                    
-//                    if (transform.position.y >= 1.76f)
-//                    {
-//                        transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
-//                        MOVEMENT = BLOCKED.UP;
-//                        TURN = DODGE.DOWN;
-//                        dodging = true;
-//                        isMoving = true;
-//                        
-//                    }
-//                    else if (transform.position.y <= 0.18f)
-//                    {
-//                        transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
-//                        MOVEMENT = BLOCKED.DOWN;
-//                        TURN = DODGE.UP;
-//                        dodging = true;
-//                        isMoving = true;
-//                       
-//                    }
-//                }
-//                else
-//                    rayHit();
-//            }
-//        }
-//
-//
-//        if (range > 0.30 && gotPlayerPoint) //releases the attack point if the enemy is not near it 
-//        {
-//            GameManager.ReleasePoint(_enemyInfoHolder.point);
-//            //GameManager.setClownWalk(true);
-//           
-//            STATE = ANIM.WALKING;
-//
-//            pointHolding = _enemyInfoHolder.point.name;
-//            gotPlayerPoint = false;
-//
-//            if (enemyAttack != null) enemyAttack.playerInRange = false;
-//        }
-////        if (!isMoving)
-////        {
-////            animator.Play("stand");
-////        }
-////        else
-////        {
-////            animator.Play("Walking");
-////        }
         CheckSide(_enemyInfoHolder); // this changes rotation according to player location
+    }
+
+    private void AttackPlayer()
+    {
+        timer = 0f;
+        if ( GameManager.GetPlayerHealth() > 0 )
+        {
+            // ... attack.
+            //GameManager.setClownAttack(true);
+            animator.Play("Attacking");
+            print("attacking");
+            GameManager.attackThePlayer(attackDamage);
+        }
     }
 
     public void CheckSide(EnemyInfoHolder _enemyInfoHolder)

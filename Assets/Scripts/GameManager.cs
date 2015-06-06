@@ -17,9 +17,11 @@ public class GameManager : MonoBehaviour
     public static AnimationHandler animationHandler;
     public static PlayerPointHandler pointHandler;
     public static clownAnimationHandler clownAnimationHandler;
+    public static PlayerHealth playerHealth;
     public static DeathFxHandler DeathFxHandler;
     public static MusicFxHandler MusicFxHandler;
     public static ScoreHandler scoreHandler;
+    public static Animator babyAnimator;
 
 
     private void Start()
@@ -56,6 +58,11 @@ public class GameManager : MonoBehaviour
         if (clownAnimations != null)
         {
             clownAnimationHandler = clownAnimations.GetComponent<clownAnimationHandler>();
+        }
+        if (playerOne != null)
+        {
+            babyAnimator = playerOne.GetComponentInChildren<Animator>();
+            playerHealth = playerOne.GetComponent<PlayerHealth>();
         }
     }
 
@@ -195,5 +202,16 @@ public class GameManager : MonoBehaviour
     public static void playShootSound()
     {
         MusicFxHandler.playShootSounds();
+    }
+
+    public static void attackThePlayer(int demageAmount)
+    {
+        babyAnimator.Play("gettingHit");
+        playerHealth.TakeDamage(demageAmount);
+    }
+
+    public static float GetPlayerHealth()
+    {
+        return playerHealth.currentHealth;
     }
 }
