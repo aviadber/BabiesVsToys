@@ -324,7 +324,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: babywalk
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110191542}
@@ -355,31 +355,14 @@ AnimatorState:
   m_Mirror: 0
   m_Motion: {fileID: 7400000, guid: 50be351e7a6ef174f8513216aa2c40fd, type: 2}
   m_Tag: 
---- !u!1102 &110226922
-AnimatorState:
-  serializedVersion: 5
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: babyPickup0 0
-  m_Speed: 3
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 1
-  m_Motion: {fileID: 7400000, guid: e5182899422536647932014db8919b5d, type: 2}
-  m_Tag: 
---- !u!1102 &110242380
+--- !u!1102 &110239770
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: babyPickup0
-  m_Speed: 3
+  m_Name: gettingHit
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -387,7 +370,7 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_Motion: {fileID: 7400000, guid: e5182899422536647932014db8919b5d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 336adc109275a0c40b6f8846bfdce758, type: 2}
   m_Tag: 
 --- !u!1102 &110266362
 AnimatorState:
@@ -413,7 +396,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: babyattack
-  m_Speed: 5
+  m_Speed: 2.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110155212}
@@ -452,22 +435,19 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 110209158}
-    m_Position: {x: 324, y: 0, z: 0}
+    m_Position: {x: 288, y: 24, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110211040}
-    m_Position: {x: 564, y: -12, z: 0}
+    m_Position: {x: 576, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110275938}
     m_Position: {x: 168, y: -60, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 110242380}
-    m_Position: {x: 300, y: 60, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 110226922}
-    m_Position: {x: 516, y: 60, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 110204384}
     m_Position: {x: 492, y: -108, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 110239770}
+    m_Position: {x: 527, y: -43, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
