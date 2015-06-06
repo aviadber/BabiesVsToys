@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Scenes/DemonstrationLevel.unity
   - enabled: 1
     path: Assets/Scenes/test.unity
+  - enabled: 1
+    path: Assets/Scenes/kindergarten.unity
