@@ -6,6 +6,7 @@ public class AnimationHandler : MonoBehaviour
     public bool isAttacking;
     public bool isWalking;
     public bool isWalkingGun;
+    public bool isStandGun;
     // Use this for initialization
     private void Start()
     {
@@ -35,5 +36,11 @@ public class AnimationHandler : MonoBehaviour
     {
         isAttacking = state;
         animator.SetBool("isAttacking", isAttacking);
+    }
+
+    public void setStandGunAnim(bool state)
+    {
+        isStandGun = state;
+        animator.SetBool("isStandingGun",isStandGun);
     }
 }

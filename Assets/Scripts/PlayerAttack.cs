@@ -42,11 +42,14 @@ public class PlayerAttack : MonoBehaviour
         }
         if (typeOfAttack == 1)
         {
-            GameManager.setWalkGunAnim(true);
+
+            GameManager.isWithGun = true;
+
+
         }
         else
         {
-            GameManager.setWalkGunAnim(false);
+            GameManager.isWithGun = false;
         }
 
         if (GameManager.enemyList.Count > 0)

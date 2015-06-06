@@ -43,7 +43,9 @@ public class CollactableWeapon : MonoBehaviour
             {
                 transform.rotation = new Quaternion(0, 180, 0, 0);
             }
-            GameManager.setWalkGunAnim(true);
+
+//            GameManager.setWalkGunAnim(true);
+            GameManager.setDefenceString("defenceGun");
             playerAttack.typeOfAttack = 1;
         }
     }

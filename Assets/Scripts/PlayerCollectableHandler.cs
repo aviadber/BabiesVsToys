@@ -36,7 +36,7 @@ public class PlayerCollectableHandler : MonoBehaviour
         if (Input.GetKeyDown(dropPickUpKey))
         {
             if (col != null) col.isPicked = false;
-
+            GameManager.setDefenceString("gettingHit");
             var playerAttack = gameObject.GetComponent<PlayerAttack>();
             playerAttack.typeOfAttack = 0;
         }
@@ -45,7 +45,7 @@ public class PlayerCollectableHandler : MonoBehaviour
     private CollactableWeapon pickUpCollectable(GameObject collect)
     {
         var c = collect.GetComponent<CollactableWeapon>();
-        GameManager.setWalkGunAnim(true);
+//        GameManager.setWalkGunAnim(true);
         c.isPicked = true;
 
         return c;

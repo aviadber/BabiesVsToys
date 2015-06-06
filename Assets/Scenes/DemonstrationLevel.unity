@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EffectGameObject: {fileID: 100000, guid: 69df23551c3c5d945bd42825ccc88d50, type: 2}
-  attackAnimTime: .100000001
+  attackAnimTime: .0500000007
   attackKey: q
   meleeAttackDmg: 20
   minAttackRange: 1.79999995
@@ -1404,6 +1404,7 @@ MonoBehaviour:
   moveLeft: 0
   moveUp: 0
   moveDown: 0
+  isWalking: 0
   blockedUp: 0
   blockedDown: 0
   blockedRight: 0
@@ -5916,6 +5917,7 @@ MonoBehaviour:
   isAttacking: 0
   isWalking: 0
   isWalkingGun: 0
+  isStandGun: 0
 --- !u!1 &1872513415
 GameObject:
   m_ObjectHideFlags: 0
@@ -6589,6 +6591,7 @@ MonoBehaviour:
   isAttacking: 0
   isWalking: 0
   isWalkingGun: 0
+  isStandGun: 0
 --- !u!95 &2122449088
 Animator:
   serializedVersion: 3

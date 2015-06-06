@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
     public static MusicFxHandler MusicFxHandler;
     public static ScoreHandler scoreHandler;
     public static Animator babyAnimator;
+    public static string defenceAnim = "gettingHit";
+    public static bool isWithGun=false;
+    public static bool isWalkingWithGun;
 
 
     private void Start()
@@ -206,12 +209,27 @@ public class GameManager : MonoBehaviour
 
     public static void attackThePlayer(int demageAmount)
     {
-        babyAnimator.Play("gettingHit");
+        babyAnimator.Play(defenceAnim);
         playerHealth.TakeDamage(demageAmount);
     }
 
     public static float GetPlayerHealth()
     {
         return playerHealth.currentHealth;
+    }
+
+    public static void setDefenceString(string defencegun)
+    {
+        defenceAnim = defencegun;
+    }
+
+    public static void setStandGunAnim(bool state)
+    {
+        animationHandler.setStandGunAnim(state);
+    }
+
+    public static void setGun(bool state)
+    {
+        isWithGun = state;
     }
 }
