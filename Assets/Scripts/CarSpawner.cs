@@ -117,12 +117,16 @@ public class CarSpawner : MonoBehaviour {
             }
             if (!randomSpawnPoints)
             {
+                
                 Instantiate(enemy, transform.position, transform.rotation);
+                byPlayerDistance = false;
             }
             else
             {
                 int spawnPointIndex = Random.Range(0, spawnPointsContainer.Length);
                 Instantiate(enemy, spawnPointsContainer[spawnPointIndex].position, spawnPointsContainer[spawnPointIndex].rotation);
+                byPlayerDistance = false;
+           
             }
             enemyesDeployed++;
 

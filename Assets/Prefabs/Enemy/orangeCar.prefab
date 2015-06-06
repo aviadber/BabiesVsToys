@@ -146,7 +146,7 @@ MonoBehaviour:
   speedScaler: 1.00999999
   distanceToExplode: .5
   explosionFX: {fileID: 100010, guid: f73f61687796dd341a3a3488693b7458, type: 2}
-  demageAmount: 50
+  demageAmount: 10
   timeToLive: 8
 --- !u!198 &19806994
 ParticleSystem:

@@ -81,85 +81,86 @@ public class EnemyAI : MonoBehaviour
         {
             _enemyInfoHolder = GameManager.getInfo4Enemy(gameObject.transform);
         }
-//        if (!stop)
-//        {
 
 
-        if (GameManager.isFreePoints())
+        if (!stop)
         {
-
-            range = Vector3.Distance(transform.position, _enemyInfoHolder.point.dockPoint.position);
-
-            if (range <= 0.2f) // checks when enemy is near the player dock point and then occupies it 
+            if (GameManager.isFreePoints())
             {
-                if (!gotPlayerPoint)
+
+                range = Vector3.Distance(transform.position, _enemyInfoHolder.point.dockPoint.position);
+
+                if (range <= 0.2f) // checks when enemy is near the player dock point and then occupies it 
                 {
-                    GameManager.OccupyPoint(_enemyInfoHolder.point);
-                    gotPlayerPoint = true;
-                    pointHolding = _enemyInfoHolder.point.name;
-                }
-                if (STATE != ANIM.ATTACKING)
-                {
+                    if (!gotPlayerPoint)
+                    {
+                        GameManager.OccupyPoint(_enemyInfoHolder.point);
+                        gotPlayerPoint = true;
+                        pointHolding = _enemyInfoHolder.point.name;
+                    }
+                    if (STATE != ANIM.ATTACKING)
+                    {
 
 //                    print(gameObject.name);
-                    
 
-                    STATE = ANIM.ATTACKING;
-                }
-                timer += Time.deltaTime;
-             if(gotPlayerPoint && timer>=timeBetweenAttacks)AttackPlayer();
-             else
-             {
+
+                        STATE = ANIM.ATTACKING;
+                    }
+                    timer += Time.deltaTime;
+                    if (gotPlayerPoint && timer >= timeBetweenAttacks) AttackPlayer();
+                    else
+                    {
 //                 animator.Play("stand");
-             }
-            }
-            else if (range > 0.3f )
-            {
-                timer = 0f;
-                if (STATE != ANIM.WALKING)
-                {
-                    if (gotPlayerPoint)
-                    GameManager.ReleasePoint(_enemyInfoHolder.point);
-                    gotPlayerPoint = false;
-                    isMoving = true;
-                    STATE = ANIM.WALKING;
-                    animator.Play("Walking");
-                }
-            }
-            
-            if (STATE == ANIM.WALKING)
-            {
-                if (dodging)
-                    dodge();
-                else if (MOVEMENT == BLOCKED.NULL)
-                {
-                    float oldY = transform.position.y;
-                    transform.position = Vector3.MoveTowards(transform.position,
-                        _enemyInfoHolder.point.dockPoint.position, moveSpeed*Time.deltaTime);
-                    isMoving = true;
-
-                    if (transform.position.y >= 1.76f)
-                    {
-                        transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
-                        MOVEMENT = BLOCKED.UP;
-                        TURN = DODGE.DOWN;
-                        dodging = true;
-                        isMoving = true;
-
-                    }
-                    else if (transform.position.y <= 0.18f)
-                    {
-                        transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
-                        MOVEMENT = BLOCKED.DOWN;
-                        TURN = DODGE.UP;
-                        dodging = true;
-                        isMoving = true;
-
                     }
                 }
-                                else
-                    rayHit();
+                else if (range > 0.3f)
+                {
+                    timer = 0f;
+                    if (STATE != ANIM.WALKING)
+                    {
+                        if (gotPlayerPoint)
+                            GameManager.ReleasePoint(_enemyInfoHolder.point);
+                        gotPlayerPoint = false;
+                        isMoving = true;
+                        STATE = ANIM.WALKING;
+                        animator.Play("Walking");
+                    }
+                }
 
+                if (STATE == ANIM.WALKING)
+                {
+                    if (dodging)
+                        dodge();
+                    else if (MOVEMENT == BLOCKED.NULL)
+                    {
+                        float oldY = transform.position.y;
+
+                        transform.position = Vector3.MoveTowards(transform.position,
+                            _enemyInfoHolder.point.dockPoint.position, moveSpeed*Time.deltaTime);
+                        isMoving = true;
+
+                        if (transform.position.y >= 1.76f)
+                        {
+                            transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
+                            MOVEMENT = BLOCKED.UP;
+                            TURN = DODGE.DOWN;
+                            dodging = true;
+                            isMoving = true;
+
+                        }
+                        else if (transform.position.y <= 0.18f)
+                        {
+                            transform.position = new Vector3(transform.position.x, oldY, transform.position.z);
+                            MOVEMENT = BLOCKED.DOWN;
+                            TURN = DODGE.UP;
+                            dodging = true;
+                            isMoving = true;
+
+                        }
+                    }
+                    else
+                        rayHit();
+                }
             }
         }
 
