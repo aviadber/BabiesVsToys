@@ -186,4 +186,14 @@ public class GameManager : MonoBehaviour
     {
         animationHandler.setWalking(b);
     }
+
+    public static void playRandomBabySoundFx()
+    {
+            MusicFxHandler.playBabySounds();
+    }
+
+    public static void playShootSound()
+    {
+        MusicFxHandler.playShootSounds();
+    }
 }

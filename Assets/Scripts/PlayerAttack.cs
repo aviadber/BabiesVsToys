@@ -130,6 +130,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (typeOfAttack == 1) //ranged attack
         {
+            GameManager.playShootSound();
             Instantiate(projectileGameObject, waterGunExitPoint.transform.position, waterGunExitPoint.transform.rotation);
         }
     }

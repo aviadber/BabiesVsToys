@@ -2,22 +2,37 @@
 
 public class MusicFxHandler : MonoBehaviour
 {
+
     public AudioSource audioSource;
-    private int obstableExplosionClipIndex;
+    private int obstableExplosionClipIndex=0;
     public AudioClip[] obstacleExplosionAudioClips;
     public AudioClip[] projectileHitAudioClips;
-    private int projectileHitAudioClipsIndex;
+    public AudioClip[] shootSoundAudioClips;
+    private int shootSoundIndex = 0;
+    private int babySoundsIndex = 0 ;
+    public AudioClip[] babySoundsAudioClips;
+    private int projectileHitAudioClipsIndex = 0;
     public float volumeScalar;
+    public float shootVolume;
     // Use this for initialization
     private void Start()
     {
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-    }
 
+    public void playShootSounds()
+    {
+        audioSource.PlayOneShot(shootSoundAudioClips[shootSoundIndex],shootVolume);
+        if (shootSoundIndex >= shootSoundAudioClips.Length)
+            shootSoundIndex = 0;
+    }
+    public void playBabySounds()
+    {
+        audioSource.PlayOneShot(babySoundsAudioClips[babySoundsIndex],volumeScalar);
+        babySoundsIndex++;
+        if (babySoundsIndex >= babySoundsAudioClips.Length)
+            babySoundsIndex = 0;
+    }
     public void playProjectileHitSfx()
     {
         audioSource.PlayOneShot(projectileHitAudioClips[projectileHitAudioClipsIndex], volumeScalar);
