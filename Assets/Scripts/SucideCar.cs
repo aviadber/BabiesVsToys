@@ -6,10 +6,11 @@ public class SucideCar : MonoBehaviour
 {
     public float carSpeed;
     public float speedScaler;
-    public GameObject babyGameObject;
     public float distanceToExplode;
     public GameObject explosionFX;
     public int demageAmount;
+    public EnemyInfoHolder _enemyInfoHolder;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -18,7 +19,7 @@ public class SucideCar : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    if (Vector3.Distance(transform.position, babyGameObject.transform.position) <= distanceToExplode)
+        if (Vector3.Distance(transform.position, GameManager.playerOne.transform.position) <= distanceToExplode)
 	    {
 	        Boom();
 	    }

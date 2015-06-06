@@ -59,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.1999998, y: 1.20000005, z: -.5}
+  m_LocalPosition: {x: 10.3965292, y: 1.20000005, z: -.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 492772}
@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0599999987, y: .720000029, z: 0}
+  m_LocalPosition: {x: 0, y: .449999988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 411048}
@@ -132,8 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carSpeed: 1
   speedScaler: 1.00999999
-  babyGameObject: {fileID: 0}
-  distanceToExplode: 1
+  distanceToExplode: .5
   explosionFX: {fileID: 100010, guid: f73f61687796dd341a3a3488693b7458, type: 2}
   demageAmount: 50
 --- !u!114 &11499302

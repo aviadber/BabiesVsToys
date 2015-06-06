@@ -59,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0599999987, y: .720000029, z: 0}
+  m_LocalPosition: {x: 0, y: .449999988, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 487224}
@@ -144,8 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carSpeed: 1
   speedScaler: 1.00999999
-  babyGameObject: {fileID: 0}
-  distanceToExplode: 1
+  distanceToExplode: .5
   explosionFX: {fileID: 100010, guid: f73f61687796dd341a3a3488693b7458, type: 2}
   demageAmount: 50
 --- !u!198 &19806994

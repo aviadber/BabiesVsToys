@@ -60,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
 
         // Reset the damaged flag.
         damaged = false;
-        heart.transform.localScale = Vector3.Lerp(heart.transform.localScale, new Vector3(1, 1, 1), Time.deltaTime);
+        heart.transform.localScale = Vector3.Lerp(heart.transform.localScale, new Vector3(2, 2, 2), Time.deltaTime);
     }
 
     public void TakeDamage(int amount)
@@ -73,7 +73,7 @@ public class PlayerHealth : MonoBehaviour
 
         // Set the health bar's value to the current health.
         healthSlider.value = currentHealth;
-        heart.transform.localScale = new Vector3(1.25f, 1.25f, 1.25f);
+        heart.transform.localScale = new Vector3(3f, 3f, 3f);
 
         // Play the hurt sound effect.
         //   playerAudio.Play();
