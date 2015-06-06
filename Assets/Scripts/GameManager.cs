@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public static string defenceAnim = "gettingHit";
     public static bool isWithGun=false;
     public static bool isWalkingWithGun;
+  
 
 
     private void Start()
@@ -153,6 +154,12 @@ public class GameManager : MonoBehaviour
     public static void activateContinueTextBlink()
     {
         GameObject textGameObject = GameObject.Find("TextHandler");
+        var text = textGameObject.GetComponent<ContinueText>();
+        text.activate = true;
+    }
+    public static void activateDodgeTextBlink()
+    {
+        GameObject textGameObject = GameObject.Find("TextHandlerDodge");
         var text = textGameObject.GetComponent<ContinueText>();
         text.activate = true;
     }

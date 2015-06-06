@@ -123,6 +123,7 @@ MonoBehaviour:
   distanceToExplode: 1
   explosionFX: {fileID: 100010, guid: f73f61687796dd341a3a3488693b7458, type: 2}
   demageAmount: 50
+  timeToLive: 8
 --- !u!114 &11465160
 MonoBehaviour:
   m_ObjectHideFlags: 1

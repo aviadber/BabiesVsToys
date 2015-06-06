@@ -41,6 +41,7 @@ public class CarSpawner : MonoBehaviour {
     private int health;
     //private bool spawning = false;
     private float timer;
+    private bool didShowDodge=false ;
 
 
 
@@ -63,6 +64,7 @@ public class CarSpawner : MonoBehaviour {
 
     void Update()
     {
+     
         if (!pause && !(useMaxEnemyes && (MaxEnemyes <= enemyesDeployed)))
         {
 
@@ -71,6 +73,11 @@ public class CarSpawner : MonoBehaviour {
             {
                 tempDistance = Vector3.Distance(this.transform.position, player.transform.position);
                 distanceFromPlayer = tempDistance;
+                if (distanceFromPlayer - distance <= 2 && !didShowDodge)
+                {
+                    didShowDodge = true;
+                    GameManager.activateDodgeTextBlink();
+                }
                 if (tempDistance <= distance)
                 {
                     if (timer < Time.time)
@@ -94,6 +101,8 @@ public class CarSpawner : MonoBehaviour {
 
     private void Spawn()
     {
+     
+
         if (!pause /* && playerHealth>0 */) // when player will have health
         {
             if (randomEnemyes)
@@ -116,6 +125,7 @@ public class CarSpawner : MonoBehaviour {
                 Instantiate(enemy, spawnPointsContainer[spawnPointIndex].position, spawnPointsContainer[spawnPointIndex].rotation);
             }
             enemyesDeployed++;
+
         }
     }
 }

@@ -39,14 +39,16 @@ public class CameraFollower : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, objToFollow.transform.position, smoothFactor);
             transform.position = new Vector3(transform.position.x, y, z);
         }
-        if (GameManager.enemyList.Count > 0)
-        {
-            cameraIsStopped = true;
-        }
+      
         if (firstStop && !cameraIsStopped)
         {
             GameManager.activateContinueTextBlink();
             firstStop = false;
+        }
+      
+        if (GameManager.enemyList.Count > 0 )
+        {
+            cameraIsStopped = true; 
         }
     }
 }
