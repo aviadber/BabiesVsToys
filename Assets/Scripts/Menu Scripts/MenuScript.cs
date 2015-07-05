@@ -92,7 +92,7 @@ public class MenuScript : MonoBehaviour
     }
     public void StartKindergarten()
     {
-        Application.LoadLevel(3);
+        Application.LoadLevel(2);
     }
 
     public void ExitGame()

@@ -6,10 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Start Menu/start.unity
-  - enabled: 1
-    path: Assets/Scenes/DemonstrationLevel.unity
-  - enabled: 1
-    path: Assets/Scenes/test.unity
+    path: Assets/Scenes/Start Menu/DemoStart.unity
   - enabled: 1
     path: Assets/Scenes/kindergarten.unity
+  - enabled: 1
+    path: Assets/Scenes/DEMO1.unity
