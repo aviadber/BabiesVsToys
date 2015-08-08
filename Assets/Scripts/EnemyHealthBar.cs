@@ -30,7 +30,7 @@ public class EnemyHealthBar : MonoBehaviour
     {
 
 
-        newScale = enemyHealth.currentHealth / 340 ;
+        newScale = enemyHealth.currentHealth / div ;
         if (newScale >= 0)
         {
 
