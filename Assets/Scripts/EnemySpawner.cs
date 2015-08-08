@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
     void Awake()
     {
         timer = Time.time + spawnInterval;
-      
+        
     }
 
     void Start()
@@ -99,8 +99,7 @@ public class EnemySpawner : MonoBehaviour
         }
         if (GameManager.GetEnemyList().Count <= 0 && waves > 0 && enemyesDeployed >= MaxEnemyes)
             resetWave();
-        if (waves == 0)
-            GameManager.setWavesIndicator(true);
+       
     }
 
     private void Spawn()
@@ -132,7 +131,8 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(enemy, spawnPointsContainer[spawnPointIndex].position, spawnPointsContainer[spawnPointIndex].rotation);
             }
             enemyesDeployed++;
-            
+            if (waves == 0 && enemyesDeployed>=MaxEnemyes)
+                GameManager.setWavesIndicator(true);
         }
        
 
@@ -140,8 +140,16 @@ public class EnemySpawner : MonoBehaviour
 
     private void resetWave()
     {
-        enemyesDeployed = 0;
-        waves--;
-        
+        if (waves > 1)
+        {
+            enemyesDeployed = 0;
+            waves--;
+        }
+        if (waves == 1)
+        {
+            waves--;
+
+        }
+
     }
 }
