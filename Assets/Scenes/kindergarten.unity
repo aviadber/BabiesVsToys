@@ -254,7 +254,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 154396306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80, y: 0, z: 0}
+  m_LocalPosition: {x: 89, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2027003556}
@@ -1099,7 +1099,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 437335882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: .939999998, z: -1.79999995}
+  m_LocalPosition: {x: 70, y: .939999998, z: -1.79999995}
   m_LocalScale: {x: .800000012, y: 1, z: .064172864}
   m_Children:
   - {fileID: 23309448}
@@ -2229,7 +2229,9 @@ MonoBehaviour:
   randomSpawnPoints: 0
   spawnPointsContainer: []
   randomEnemyes: 1
-  enemyContainer: []
+  enemyContainer:
+  - {fileID: 151266, guid: ca61db38a2a7b40e7a7cb9d057b0e72d, type: 2}
+  - {fileID: 100002, guid: cd274b6e456aa4dcc91b18f278a25c76, type: 2}
   waves: 3
   maxEnemywaves: 0
   waveText: 1
@@ -2240,7 +2242,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 736716222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61, y: 0, z: 0}
+  m_LocalPosition: {x: 61, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 339890442}
@@ -3744,7 +3746,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1392006975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 40.0600014, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1896528820}
@@ -3952,7 +3954,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1455207460}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb17ec8e292030846b73553d34ac676d, type: 3}
   m_Name: 
@@ -4430,7 +4432,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1727824542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 80.5999985, y: 0, z: 0}
+  m_LocalPosition: {x: 89.8199997, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 339890442}
@@ -4452,10 +4454,10 @@ MonoBehaviour:
   pause: 0
   spawnInterval: 3
   byPlayerDistance: 1
-  distance: 8
+  distance: 15
   tempDistance: 0
   useMaxEnemyes: 1
-  MaxEnemyes: 3
+  MaxEnemyes: 10
   enemyesDeployed: 0
   boss: 0
   bossHPMultiplier: 2
@@ -4471,7 +4473,6 @@ MonoBehaviour:
   - {fileID: 139518, guid: 98231b27c5582457d9dd50cda258ee73, type: 2}
   - {fileID: 173842, guid: 6789605274aad40cfbf63bab5227c135, type: 2}
   - {fileID: 153878, guid: 1f1ca1e85e1d34efab891e25c6b975f1, type: 2}
-  - {fileID: 1727824542}
 --- !u!114 &1727824545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5325,7 +5326,6 @@ MonoBehaviour:
   - {fileID: 139518, guid: 98231b27c5582457d9dd50cda258ee73, type: 2}
   - {fileID: 173842, guid: 6789605274aad40cfbf63bab5227c135, type: 2}
   - {fileID: 153878, guid: 1f1ca1e85e1d34efab891e25c6b975f1, type: 2}
-  - {fileID: 2092321175}
 --- !u!4 &2092321178
 Transform:
   m_ObjectHideFlags: 0
