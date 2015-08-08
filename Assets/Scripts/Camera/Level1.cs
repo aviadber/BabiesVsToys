@@ -8,13 +8,17 @@ public class Level1 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		leftBorder = new Vector3 (1.6f,0,0);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (transform.position.x < leftBorder.x)
-			transform.postion = leftBorder;
+		leftBorder = transform.position;
+
+		if (transform.position.x < 1.6f) {
+			leftBorder.x = 1.6f;
+			transform.position = leftBorder;//new Vector3(1.6f,0f,0f);
+		}
 		//cam.transform.Translate ();
 	}
 }
