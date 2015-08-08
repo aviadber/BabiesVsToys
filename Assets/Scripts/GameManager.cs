@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public static string defenceAnim = "gettingHit";
     public static bool isWithGun=false;
     public static bool isWalkingWithGun;
+    private static bool wavesIndicator = true;
   
 
 
@@ -238,5 +239,15 @@ public class GameManager : MonoBehaviour
     public static void setGun(bool state)
     {
         isWithGun = state;
+    }
+
+    public static bool getWavesIndicator()
+    {
+        return wavesIndicator;
+    }
+
+    public static void setWavesIndicator(bool b)
+    {
+        wavesIndicator = b;
     }
 }

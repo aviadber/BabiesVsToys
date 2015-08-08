@@ -22,7 +22,7 @@ public class CameraFollower : MonoBehaviour
 //this makes camera follow the player
         if (stopCamera)
         {
-            if (GameManager.enemyList.Count == 0)
+            if (GameManager.enemyList.Count == 0 && GameManager.getWavesIndicator()==true)
             {
                 if (cameraIsStopped && !firstStop)
                 {
@@ -40,7 +40,7 @@ public class CameraFollower : MonoBehaviour
             transform.position = new Vector3(transform.position.x, y, z);
         }
       
-        if (firstStop && !cameraIsStopped)
+        if (firstStop && !cameraIsStopped && GameManager.getWavesIndicator()==true)
         {
             GameManager.activateContinueTextBlink();
             firstStop = false;

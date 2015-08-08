@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -41,6 +43,10 @@ public class EnemySpawner : MonoBehaviour
     private int health;
              //private bool spawning = false;
     private float timer;
+    public int waves;
+    public int maxEnemywaves;
+    public string waveText = "1";
+
     
 
     
@@ -50,6 +56,7 @@ public class EnemySpawner : MonoBehaviour
     void Awake()
     {
         timer = Time.time + spawnInterval;
+      
     }
 
     void Start()
@@ -90,10 +97,19 @@ public class EnemySpawner : MonoBehaviour
             }
 
         }
+        if (GameManager.GetEnemyList().Count <= 0 && waves > 0 && enemyesDeployed >= MaxEnemyes)
+            resetWave();
+        if (waves == 0)
+            GameManager.setWavesIndicator(true);
     }
 
     private void Spawn()
     {
+        if (waves > 0)
+        {
+            GameManager.setWavesIndicator(false);
+            
+        }
         if (!pause /* && playerHealth>0 */) // when player will have health
         {
             if (randomEnemyes)
@@ -116,6 +132,16 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(enemy, spawnPointsContainer[spawnPointIndex].position, spawnPointsContainer[spawnPointIndex].rotation);
             }
             enemyesDeployed++;
+            
         }
+       
+
+    }
+
+    private void resetWave()
+    {
+        enemyesDeployed = 0;
+        waves--;
+        
     }
 }

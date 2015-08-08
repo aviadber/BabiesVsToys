@@ -68,12 +68,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d438a9828eea0bf488fb1581bb8074ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitRange: 1.70000005
+  projEffect: {fileID: 100000, guid: a381ded06c204a54e909a18e574f7436, type: 2}
+  projectileDamage: 5
+  projectileHitFX: {fileID: 100002, guid: 3701b037060881f4ab28875f88041c69, type: 2}
   projectileSpeed: 5
   rangeOfProjectile: 1.5
-  projEffect: {fileID: 100000, guid: a381ded06c204a54e909a18e574f7436, type: 2}
-  projectileDamage: 25
-  projectileHitFX: {fileID: 100002, guid: 3701b037060881f4ab28875f88041c69, type: 2}
-  hitRange: 1.20000005
 --- !u!212 &21293822
 SpriteRenderer:
   m_ObjectHideFlags: 1

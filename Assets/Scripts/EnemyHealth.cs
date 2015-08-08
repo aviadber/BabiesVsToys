@@ -7,8 +7,8 @@ public class EnemyHealth : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        if (currentHealth > 100)
-            currentHealth = 100;
+//        if (currentHealth > 100)
+//            currentHealth = 100;
     }
 
     // Update is called once per frame
