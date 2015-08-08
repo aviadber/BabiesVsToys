@@ -101,7 +101,7 @@ public class CarSpawner : MonoBehaviour {
 
     private void Spawn()
     {
-     
+     GameManager.setWavesIndicator(false);
 
         if (!pause /* && playerHealth>0 */) // when player will have health
         {
@@ -129,7 +129,8 @@ public class CarSpawner : MonoBehaviour {
            
             }
             enemyesDeployed++;
-
+            if(enemyesDeployed>=MaxEnemyes)
+                GameManager.setWavesIndicator(true);
         }
     }
 }
