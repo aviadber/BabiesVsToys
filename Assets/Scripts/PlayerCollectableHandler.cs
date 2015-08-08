@@ -38,6 +38,7 @@ public class PlayerCollectableHandler : MonoBehaviour
             if (col != null) col.isPicked = false;
             GameManager.setDefenceString("gettingHit");
             var playerAttack = gameObject.GetComponent<PlayerAttack>();
+            col.transform.position=new Vector3(col.transform.position.x,col.transform.position.y-0.8f,col.transform.position.z);
             playerAttack.typeOfAttack = 0;
         }
     }
