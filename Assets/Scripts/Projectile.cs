@@ -56,7 +56,7 @@ public class Projectile : MonoBehaviour
                     var enemyHealth = enemy.GetComponent<EnemyHealth>();
                     Instantiate(projectileHitFX, transform.position, transform.rotation);
                     GameManager.playProjectileHitSoundFx();
-                    enemyHealth.DecreaseHealth(projectileDamage);
+                    if (enemyHealth != null) enemyHealth.DecreaseHealth(projectileDamage);
                     Destroy(gameObject);
                 }
             }
