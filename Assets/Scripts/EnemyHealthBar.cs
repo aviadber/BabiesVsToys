@@ -7,6 +7,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     public GameObject frontBar;
     public GameObject backBar;
+	public float div = 340f;
     private EnemyHealth enemyHealth;
 
     private float newScale;
@@ -29,7 +30,7 @@ public class EnemyHealthBar : MonoBehaviour
     {
 
 
-        newScale = enemyHealth.currentHealth / 105.2f ;
+        newScale = enemyHealth.currentHealth / 340 ;
         if (newScale >= 0)
         {
 

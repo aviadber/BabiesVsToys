@@ -261,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7bc7f15e11f3642953e0ca0ee68999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
+  currentHealth: 350
   scoreAmount: 15
 --- !u!114 &11405364
 MonoBehaviour:
@@ -276,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frontBar: {fileID: 184306}
   backBar: {fileID: 119268}
+  div: 340
 --- !u!114 &11441396
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -454,7 +455,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: currentHealth
+      value: 350
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100002}

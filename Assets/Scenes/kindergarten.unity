@@ -718,6 +718,7 @@ Transform:
   - {fileID: 2092321178}
   - {fileID: 1261173910}
   - {fileID: 1727824543}
+  - {fileID: 485048339}
   m_Father: {fileID: 0}
   m_RootOrder: 10
 --- !u!1 &356813708
@@ -1099,7 +1100,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 437335882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70, y: .939999998, z: -1.79999995}
+  m_LocalPosition: {x: 0, y: 0, z: -1.79999995}
   m_LocalScale: {x: .800000012, y: 1, z: .064172864}
   m_Children:
   - {fileID: 23309448}
@@ -1325,6 +1326,78 @@ MonoBehaviour:
   objToFollow: {fileID: 437335882}
   smoothFactor: 1
   stopCamera: 1
+--- !u!1 &485048338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 485048339}
+  - 114: {fileID: 485048341}
+  - 114: {fileID: 485048340}
+  m_Layer: 0
+  m_Name: SpwanerBOSS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &485048339
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485048338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 120, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 339890442}
+  m_RootOrder: 5
+--- !u!114 &485048340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485048338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b021a8a78ccbfa4e81be6244d131144, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zFactor: 1.20000005
+--- !u!114 &485048341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 485048338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee529887029ba554ca85cd51a1890bdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 100002, guid: 64a64bcdf32c240ac961f5f97e8aa51a, type: 2}
+  player: {fileID: 437335882}
+  distanceFromPlayer: 0
+  pause: 0
+  spawnInterval: .5
+  byPlayerDistance: 1
+  distance: 8
+  tempDistance: 0
+  useMaxEnemyes: 1
+  MaxEnemyes: 1
+  enemyesDeployed: 0
+  boss: 0
+  bossHPMultiplier: 4
+  randomSpawnPoints: 0
+  spawnPointsContainer: []
+  randomEnemyes: 0
+  enemyContainer: []
+  waves: 0
+  maxEnemywaves: 0
+  waveText: 1
 --- !u!1 &520375587
 GameObject:
   m_ObjectHideFlags: 0
