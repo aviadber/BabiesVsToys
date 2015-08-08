@@ -175,7 +175,7 @@ public class EnemyAI : MonoBehaviour
             // ... attack.
             //GameManager.setClownAttack(true);
             animator.Play("Attacking");
-            print("attacking");
+        //    print("attacking");
             GameManager.attackThePlayer(attackDamage);
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Level1 : MonoBehaviour {
-	//public GameObject cam;
+
 	public float rightBorder = 0f;
 	public Vector3 leftBorder;
 
@@ -17,8 +17,8 @@ public class Level1 : MonoBehaviour {
 
 		if (transform.position.x < 1.6f) {
 			leftBorder.x = 1.6f;
-			transform.position = leftBorder;//new Vector3(1.6f,0f,0f);
+			transform.position = leftBorder;
 		}
-		//cam.transform.Translate ();
+
 	}
 }
