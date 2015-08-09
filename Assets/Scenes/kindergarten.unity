@@ -942,6 +942,7 @@ GameObject:
   - 114: {fileID: 437335883}
   - 114: {fileID: 437335890}
   - 114: {fileID: 437335891}
+  - 114: {fileID: 437335892}
   m_Layer: 8
   m_Name: player
   m_TagString: player
@@ -974,8 +975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b6f75c67ab50f4f82f09bae67914ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropPickUpKey: t
-  pickUpKey: r
+  dropPickUpKey: /
+  pickUpKey: .
 --- !u!114 &437335885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,12 +1010,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EffectGameObject: {fileID: 100000, guid: 69df23551c3c5d945bd42825ccc88d50, type: 2}
   attackAnimTime: .100000001
-  attackKey: q
-  meleeAttackDmg: 20
+  attackKey: ','
+  meleeAttackDmg: 30
   minAttackRange: 1.79999995
   offensePoint: {fileID: 630083244}
   projectileGameObject: {fileID: 100002, guid: 3246a0d20366d154889a642494ceabf9, type: 2}
-  rangedAttackKey: q
+  rangedAttackKey: ','
   typeOfAttack: 0
   waterGunExitPoint: {fileID: 356813708}
 --- !u!114 &437335887
@@ -1143,6 +1144,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rightBorder: 1.60000002
   leftBorder: {x: 1.60000002, y: 0, z: 0}
+--- !u!114 &437335892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 437335882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a2bc3880ff57d34cb1a1fa5b574b88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &442109230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1310,6 +1322,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &457770792
 Transform:
   m_ObjectHideFlags: 0
@@ -1650,6 +1663,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &591323622
 MonoBehaviour:

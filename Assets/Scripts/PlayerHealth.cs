@@ -90,8 +90,9 @@ public class PlayerHealth : MonoBehaviour
     private void Death()
     {
         // Set the death flag so this function won't be called again.
+		Application.LoadLevel (3);
         isDead = true;
-        transform.rotation = new Quaternion(90, 90, 0, 0);
+        //transform.rotation = new Quaternion(90, 90, 0, 0);
 
         // Turn off any remaining shooting effects.
 //        playerShooting.DisableEffects();

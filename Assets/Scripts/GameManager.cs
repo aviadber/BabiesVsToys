@@ -245,6 +245,10 @@ public class GameManager : MonoBehaviour
     {
         return wavesIndicator;
     }
+	public static int getScore()
+	{
+		return ScoreHandler.score;
+	}
 
     public static void setWavesIndicator(bool b)
     {

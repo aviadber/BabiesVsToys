@@ -1,19 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class endlevel : MonoBehaviour {
-
-    
-
+public class FinalScore : MonoBehaviour {
+	public Text score;
 	// Use this for initialization
 	void Start () {
-	
+		score.text= GameManager.getScore ().ToString ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	    if (transform.position.x > 146)
-            Application.LoadLevel(0);
-	        
+	
 	}
 }
