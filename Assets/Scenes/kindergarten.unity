@@ -702,7 +702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &339890442
 Transform:
   m_ObjectHideFlags: 0
@@ -942,7 +942,6 @@ GameObject:
   - 114: {fileID: 437335883}
   - 114: {fileID: 437335890}
   - 114: {fileID: 437335891}
-  - 114: {fileID: 437335892}
   m_Layer: 8
   m_Name: player
   m_TagString: player
@@ -1102,7 +1101,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 437335882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.70000005, y: .419999987, z: -1.79999995}
+  m_LocalPosition: {x: 1.60000002, y: .419999987, z: -1.79999995}
   m_LocalScale: {x: .800000012, y: 1, z: .064172864}
   m_Children:
   - {fileID: 23309448}
@@ -1142,24 +1141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8fb35cabce5641ab9cb48fc228a62eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   rightBorder: 1.60000002
   leftBorder: {x: 1.60000002, y: 0, z: 0}
-=======
-  rightBorder: 0
-  leftBorder: {x: 1.70000005, y: 0, z: 0}
---- !u!114 &437335892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 437335882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a2bc3880ff57d34cb1a1fa5b574b88a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
->>>>>>> Stashed changes
 --- !u!1 &442109230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,7 +1317,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 457770787}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.70000005, y: 3.0999999, z: -17.1000004}
+  m_LocalPosition: {x: 1.61000001, y: 3.0999999, z: -17.1000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1588908487}

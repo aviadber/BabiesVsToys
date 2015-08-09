@@ -3,7 +3,7 @@ using System.Collections;
 
 public class endlevel : MonoBehaviour {
 
-    
+    public GameObject player;
 
 	// Use this for initialization
 	void Start () {
@@ -12,7 +12,7 @@ public class endlevel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (transform.position.x > 146)
+	    if (player.transform.position.x > 146)
             Application.LoadLevel(0);
 	        
 	}

@@ -15,8 +15,8 @@ public class Level1 : MonoBehaviour {
 	void Update () {
 		leftBorder = transform.position;
 
-		if (transform.position.x < 1.7f) {
-			leftBorder.x = 1.7f;
+		if (transform.position.x < 1.6f) {
+			leftBorder.x = 1.6f;
 			transform.position = leftBorder;
 		}
 
