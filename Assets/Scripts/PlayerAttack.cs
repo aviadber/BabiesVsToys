@@ -115,7 +115,7 @@ public class PlayerAttack : MonoBehaviour
                     Instantiate(EffectGameObject, offensePoint.transform.position, offensePoint.transform.rotation);
                     isAttacking = true;
                     GameManager.setAttackAnim(true);
-                    health.DecreaseHealth(meleeAttackDmg);
+                    if (health != null) health.DecreaseHealth(meleeAttackDmg);
                 }
             }
             else
