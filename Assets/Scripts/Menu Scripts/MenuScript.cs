@@ -88,11 +88,11 @@ public class MenuScript : MonoBehaviour
 
     public void StartPlayGround()
     {
-        Application.LoadLevel(2);
+        Application.LoadLevel(1);
     }
     public void StartKindergarten()
     {
-        Application.LoadLevel(2);
+        Application.LoadLevel(1);
     }
 
     public void ExitGame()

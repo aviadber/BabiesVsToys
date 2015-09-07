@@ -12,7 +12,7 @@ public class EndLevelMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		exitText = exitText.GetComponent<Button>();
+
 	}
 	
 	// Update is called once per frame

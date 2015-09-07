@@ -3,7 +3,7 @@ using System.Collections;
 
 public class endlevel : MonoBehaviour {
 
-    
+	public float endlevelcoords;
 
 	// Use this for initialization
 	void Start () {
@@ -12,8 +12,8 @@ public class endlevel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (transform.position.x > 146)
-            Application.LoadLevel(0);
+	    if (transform.position.x > endlevelcoords)
+            Application.LoadLevel(3);
 	        
 	}
 }
